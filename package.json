@@ -1,0 +1,27 @@
+{
+  "name": "watcher-ia-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Watcher IA — Agentic AI corporate website (Hono + Cloudflare Workers + D1, AR/EN/FR)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply watcher_ia_db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply watcher_ia_db --remote",
+    "db:create": "wrangler d1 create watcher_ia_db",
+    "typecheck": "tsc --noEmit",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "hono": "^4.7.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "wrangler": "^3.114.0"
+  }
+}

@@ -1,0 +1,25 @@
+#:schema https://pub-5ed500f4f34f42a8a8376a5f157bb37.oa.r.appspot.com/schemas/wrangler.json
+name = "watcher-ia"
+main = "src/index.ts"
+compatibility_date = "2025-06-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "watcher_ia_db"
+# TODO: replace after `wrangler d1 create watcher_ia_db`
+database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+migrations_dir = "migrations"
+
+[vars]
+DEFAULT_LANG = "en"
+CONTACT_EMAIL = "CEO@WATCHERIA.CLOUD"
+CONTACT_PHONE = "+21621304255"
+CONTACT_ADDRESS = "01 Rue 13 Aout, Manflouri, Tunisia"
+
+# [observability.logs]
+# enabled = true

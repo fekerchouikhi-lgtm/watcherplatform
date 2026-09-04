@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Watcher IA — hybrid dark/light theme extras */
+:root {
+  --watcher-navy: #0a0a40;
+  --watcher-deep: #060624;
+  --watcher-blue: #1da9e4;
+  --watcher-cyan: #38e1ff;
+  --watcher-red: #ff1e2d;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(56, 225, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 225, 255, 0.07) 1px, transparent 1px),
+    radial-gradient(800px 400px at 70% 10%, rgba(29, 169, 228, 0.25), transparent 60%),
+    radial-gradient(600px 300px at 10% 90%, rgba(255, 30, 45, 0.12), transparent 60%);
+  background-size: 44px 44px, 44px 44px, auto, auto;
+}
+
+/* RTL polish for Arabic */
+html[dir='rtl'] body {
+  letter-spacing: 0 !important;
+}
+
+/* Serif display for sovereign section (matches poster aesthetic) */
+.font-serif {
+  font-family: 'Playfair Display', 'Noto Naskh Arabic', Georgia, serif;
+}
+
+/* Focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--watcher-cyan);
+  outline-offset: 2px;
+}

@@ -1,4 +1,5 @@
 import { Hono } from 'hono';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { dicts, isLang, DEFAULT_LANG, type Lang } from './i18n';
 import { layout, homePage, blogIndexPage, blogPostPage } from './views';
 
@@ -7,6 +8,7 @@ type Bindings = {
   ASSETS: Fetcher;
   DEFAULT_LANG?: string;
   ADMIN_TOKEN?: string;
+  GEMINI_API_KEY?: string;
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
@@ -30,11 +32,12 @@ function langOrDefault(param: string | undefined, envLang?: string): Lang {
 // Health
 app.get('/api/health', (c) => c.json({ ok: true, service: 'watcher-ia', ts: new Date().toISOString() }));
 
-// AI Sales Agent Chatbot SSE Endpoint
+// AI Sales Agent Chatbot SSE Endpoint (Powered by Gemini AI / Watcher Claw)
 app.get('/api/chat/:lang', async (c) => {
   const raw = c.req.param('lang');
   const lang: Lang = isLang(raw) ? raw : DEFAULT_LANG;
   const prompt = c.req.query('q') || '';
+  const apiKey = c.env.GEMINI_API_KEY;
 
   return new Response(
     new ReadableStream({
@@ -44,33 +47,54 @@ app.get('/api/chat/:lang', async (c) => {
           controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
         };
 
-        send({ status: 'reasoning', message: lang === 'fr' ? 'Analyse de la requête par Watcher Claw...' : lang === 'ar' ? 'جاري تحليل الاستعلام بواسطة Watcher Claw...' : 'Analyzing query through Watcher Claw kernel...' });
-        await new Promise((r) => setTimeout(r, 400));
+        send({ status: 'reasoning', message: lang === 'fr' ? 'Analyse de la requête par Watcher Claw (Gemini Pro)...' : lang === 'ar' ? 'جاري تحليل الاستعلام بواسطة Watcher Claw (Gemini)...' : 'Analyzing query through Watcher Claw kernel (Gemini AI)...' });
 
-        send({ status: 'retrieving', message: lang === 'fr' ? 'Interrogation des bases vectorielles privées (ODS)...' : lang === 'ar' ? 'استرجاع المعرفة من قواعد البيانات السيادية (ODS)...' : 'Querying private vector knowledge base (ODS stack)...' });
-        await new Promise((r) => setTimeout(r, 600));
-
-        // Generate contextual response
         let reply = '';
-        const q = prompt.toLowerCase();
-        if (q.includes('price') || q.includes('cost') || q.includes('tarif') || q.includes('prix') || q.includes('سعر') || q.includes('تكلفة')) {
-          reply = lang === 'fr'
-            ? 'Nos solutions agentiques sont basées sur le ROI opérationnel. Chaque workforce (admin, compta, dev) est calibrée selon vos volumes. Planifiez un échange avec nos architectes pour un chiffrage précis.'
-            : lang === 'ar'
-              ? 'تعتمد حلولنا الوكيلية على العائد التشغيلي (ROI). يتم معايرة كل قوة عاملة بناءً على حجم عملياتك. تواصل معنا للحصول على تقدير مخصص.'
-              : 'Our agentic solutions are outcome-based, measured by operational ROI. Each autonomous workforce is customized to your operational volume. Connect with our architects for a precise enterprise quote.';
-        } else if (q.includes('sovereign') || q.includes('ods') || q.includes('private') || q.includes('souverain') || q.includes('سيا')) {
-          reply = lang === 'fr'
-            ? 'Notre pile ODS / Osmantic garantit un déploiement 100% on-premise ou cloud privé souverain. Vos données ne quittent jamais votre périmètre de sécurité.'
-            : lang === 'ar'
-              ? 'تضمن حزمة ODS / Osmantic الخاصة بنا نشراً محلياً أو سحابياً سيادياً بالكامل. بياناتك لا تغادر محيطك الأمني مطلقاً.'
-              : 'Our ODS / Osmantic stack guarantees 100% on-premise or sovereign private cloud deployment. Your data never leaves your secure perimeter.';
+        if (apiKey) {
+          try {
+            const genAI = new GoogleGenerativeAI(apiKey);
+            const systemInstruction = `You are the professional Sales Agent for Watcher IA ("Watcher Claw"). 
+Location headquarters: 01 Rue 13 Aout, Montfleury, Tunisia.
+Core focus: Bespoke Agentic Solutions (Autonomous workforces for admin, accounting, dev), n8n Workflow Automation & Training, Secure Private AI Server Deployment (ODS/Osmantic stack, on-premise/sovereign), and Consulting & Digital Governance.
+Tone: Precise, authoritative, helpful, and tech-forward. Respond in the user's language (${lang}).`;
+
+            const model = genAI.getGenerativeModel({
+              model: 'gemini-1.5-flash',
+              systemInstruction,
+            });
+
+            const result = await model.generateContentStream(prompt);
+            for await (const chunk of result.stream) {
+              const text = chunk.text();
+              if (text) {
+                reply += text;
+              }
+            }
+          } catch (err) {
+            console.error('Gemini API error:', err);
+            reply = lang === 'fr'
+              ? 'Erreur lors de la communication avec le noyau Gemini. Nos solutions agentiques restent pleinement opérationnelles.'
+              : lang === 'ar'
+                ? 'حدث خطأ في الاتصال بنواة Gemini. حلولنا الوكيلية لا تزال تعمل بكفاءة كاملة.'
+                : 'Error communicating with Gemini kernel. Our autonomous workforces remain fully operational.';
+          }
         } else {
-          reply = lang === 'fr'
-            ? `Watcher IA déploie des workforces autonomes (admin, compta, dev) orchestrées via n8n. Comment pouvons-nous accélérer votre transition vers l'IA agentique ?`
-            : lang === 'ar'
-              ? `تقوم Watcher IA بنشر قوى عاملة ذاتية (إدارة، محاسبة، تطور) منسقة عبر n8n. كيف يمكننا تسريع انتقالك إلى الذكاء الوكيلي؟`
-              : `Watcher IA deploys autonomous workforces (admin, accounting, dev) orchestrated via n8n. How can we accelerate your transition to agentic automation at 01 Rue 13 Aout, Montfleury?`;
+          // Fallback simulation if GEMINI_API_KEY is not configured yet
+          await new Promise((r) => setTimeout(r, 500));
+          const q = prompt.toLowerCase();
+          if (q.includes('price') || q.includes('cost') || q.includes('tarif') || q.includes('prix') || q.includes('سعر')) {
+            reply = lang === 'fr'
+              ? 'Nos solutions agentiques sont basées sur le ROI opérationnel. Chaque workforce (admin, compta, dev) est calibrée selon vos volumes.'
+              : lang === 'ar'
+                ? 'تعتمد حلولنا الوكيلية على العائد التشغيلي. يتم معايرة كل قوة عاملة بناءً على حجم عملياتك.'
+                : 'Our agentic solutions are outcome-based, measured by operational ROI. Each autonomous workforce is customized to your volume.';
+          } else {
+            reply = lang === 'fr'
+              ? `Watcher IA déploie des workforces autonomes (admin, compta, dev) orchestrées via n8n depuis notre siège au 01 Rue 13 Aout, Montfleury, Tunisie.`
+              : lang === 'ar'
+                ? `تقوم Watcher IA بنشر قوى عاملة ذاتية (إدارة، محاسبة، تطور) منسقة عبر n8n من مقرنا في 01 Rue 13 Aout, Montfleury, Tunisia.`
+                : `Watcher IA deploys autonomous workforces (admin, accounting, dev) orchestrated via n8n from 01 Rue 13 Aout, Montfleury, Tunisia.`;
+          }
         }
 
         send({ status: 'complete', reply });
@@ -102,7 +126,7 @@ app.get('/:lang', async (c) => {
   let posts: any[] = [];
   try {
     const { results } = await c.env.DB.prepare(
-      'SELECT slug, title, excerpt, published_at FROM posts WHERE lang = ? ORDER BY published_at DESC LIMIT 6'
+      'SELECT slug, title, excerpt, cover, published_at FROM posts WHERE lang = ? ORDER BY published_at DESC LIMIT 6'
     )
       .bind(lang)
       .all();
@@ -126,7 +150,7 @@ app.get('/:lang/blog', async (c) => {
   if (!isLang(raw)) return c.redirect('/en/blog', 302);
   const dict = dicts[raw];
   const { results } = await c.env.DB.prepare(
-    'SELECT slug, title, excerpt, published_at FROM posts WHERE lang = ? ORDER BY published_at DESC LIMIT 30'
+    'SELECT slug, title, excerpt, cover, published_at FROM posts WHERE lang = ? ORDER BY published_at DESC LIMIT 30'
   )
     .bind(raw)
     .all();
@@ -140,7 +164,7 @@ app.get('/:lang/blog/:slug', async (c) => {
   const raw = c.req.param('lang');
   if (!isLang(raw)) return c.redirect('/en/blog', 302);
   const slug = c.req.param('slug');
-  const row = await c.env.DB.prepare('SELECT slug, title, excerpt, body, published_at FROM posts WHERE lang = ? AND slug = ?')
+  const row = await c.env.DB.prepare('SELECT slug, title, excerpt, body, cover, published_at FROM posts WHERE lang = ? AND slug = ?')
     .bind(raw, slug)
     .first<any>();
   if (!row) return c.notFound();

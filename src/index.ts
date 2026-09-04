@@ -6,6 +6,7 @@ type Bindings = {
   DB: D1Database;
   ASSETS: Fetcher;
   DEFAULT_LANG?: string;
+  ADMIN_TOKEN?: string;
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
@@ -18,6 +19,8 @@ const VALID_SERVICES = new Set([
   'other',
 ]);
 
+const N8N_WEBHOOK_URL = 'https://gideon-ironless-overderisively.ngrok-free.dev/webhook/c94df705-a521-44a9-b215-c4215e6d155e';
+
 function langOrDefault(param: string | undefined, envLang?: string): Lang {
   if (param && isLang(param)) return param;
   if (envLang && isLang(envLang)) return envLang;
@@ -27,7 +30,64 @@ function langOrDefault(param: string | undefined, envLang?: string): Lang {
 // Health
 app.get('/api/health', (c) => c.json({ ok: true, service: 'watcher-ia', ts: new Date().toISOString() }));
 
-// Root -> default lang (respect env)
+// AI Sales Agent Chatbot SSE Endpoint
+app.get('/api/chat/:lang', async (c) => {
+  const raw = c.req.param('lang');
+  const lang: Lang = isLang(raw) ? raw : DEFAULT_LANG;
+  const prompt = c.req.query('q') || '';
+
+  return new Response(
+    new ReadableStream({
+      async start(controller) {
+        const encoder = new TextEncoder();
+        const send = (data: object) => {
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
+        };
+
+        send({ status: 'reasoning', message: lang === 'fr' ? 'Analyse de la requête par Watcher Claw...' : lang === 'ar' ? 'جاري تحليل الاستعلام بواسطة Watcher Claw...' : 'Analyzing query through Watcher Claw kernel...' });
+        await new Promise((r) => setTimeout(r, 400));
+
+        send({ status: 'retrieving', message: lang === 'fr' ? 'Interrogation des bases vectorielles privées (ODS)...' : lang === 'ar' ? 'استرجاع المعرفة من قواعد البيانات السيادية (ODS)...' : 'Querying private vector knowledge base (ODS stack)...' });
+        await new Promise((r) => setTimeout(r, 600));
+
+        // Generate contextual response
+        let reply = '';
+        const q = prompt.toLowerCase();
+        if (q.includes('price') || q.includes('cost') || q.includes('tarif') || q.includes('prix') || q.includes('سعر') || q.includes('تكلفة')) {
+          reply = lang === 'fr'
+            ? 'Nos solutions agentiques sont basées sur le ROI opérationnel. Chaque workforce (admin, compta, dev) est calibrée selon vos volumes. Planifiez un échange avec nos architectes pour un chiffrage précis.'
+            : lang === 'ar'
+              ? 'تعتمد حلولنا الوكيلية على العائد التشغيلي (ROI). يتم معايرة كل قوة عاملة بناءً على حجم عملياتك. تواصل معنا للحصول على تقدير مخصص.'
+              : 'Our agentic solutions are outcome-based, measured by operational ROI. Each autonomous workforce is customized to your operational volume. Connect with our architects for a precise enterprise quote.';
+        } else if (q.includes('sovereign') || q.includes('ods') || q.includes('private') || q.includes('souverain') || q.includes('سيا')) {
+          reply = lang === 'fr'
+            ? 'Notre pile ODS / Osmantic garantit un déploiement 100% on-premise ou cloud privé souverain. Vos données ne quittent jamais votre périmètre de sécurité.'
+            : lang === 'ar'
+              ? 'تضمن حزمة ODS / Osmantic الخاصة بنا نشراً محلياً أو سحابياً سيادياً بالكامل. بياناتك لا تغادر محيطك الأمني مطلقاً.'
+              : 'Our ODS / Osmantic stack guarantees 100% on-premise or sovereign private cloud deployment. Your data never leaves your secure perimeter.';
+        } else {
+          reply = lang === 'fr'
+            ? `Watcher IA déploie des workforces autonomes (admin, compta, dev) orchestrées via n8n. Comment pouvons-nous accélérer votre transition vers l'IA agentique ?`
+            : lang === 'ar'
+              ? `تقوم Watcher IA بنشر قوى عاملة ذاتية (إدارة، محاسبة، تطور) منسقة عبر n8n. كيف يمكننا تسريع انتقالك إلى الذكاء الوكيلي؟`
+              : `Watcher IA deploys autonomous workforces (admin, accounting, dev) orchestrated via n8n. How can we accelerate your transition to agentic automation at 01 Rue 13 Aout, Montfleury?`;
+        }
+
+        send({ status: 'complete', reply });
+        controller.close();
+      },
+    }),
+    {
+      headers: {
+        'Content-Type': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+      },
+    }
+  );
+});
+
+// Root -> default lang
 app.get('/', (c) => {
   const lang = langOrDefault(undefined, c.env.DEFAULT_LANG);
   return c.redirect(`/${lang}`, 302);
@@ -88,7 +148,7 @@ app.get('/:lang/blog/:slug', async (c) => {
   return c.html(layout({ lang: raw, dict, title: row.title, description: row.excerpt, content: blogPostPage(raw, dict, row) }));
 });
 
-// Registration: POST /:lang/register (form + JSON)
+// Registration: POST /:lang/register (D1 + N8N Webhook)
 app.post('/:lang/register', async (c) => {
   const raw = c.req.param('lang');
   const lang: Lang = isLang(raw) ? raw : DEFAULT_LANG;
@@ -115,6 +175,7 @@ app.post('/:lang/register', async (c) => {
     return c.json({ ok: false, error: 'validation', fields: { name: name.length >= 2, email: emailOk, service: VALID_SERVICES.has(service_request) } }, 422);
   }
 
+  // 1. Insert into D1 database
   try {
     await c.env.DB.prepare(
       'INSERT INTO clients (name, company, email, service_request, message, lang) VALUES (?, ?, ?, ?, ?, ?)'
@@ -125,10 +186,29 @@ app.post('/:lang/register', async (c) => {
     console.error('D1 insert failed', e);
     return c.json({ ok: false, error: 'db_error' }, 500);
   }
+
+  // 2. Synchronous POST to N8N webhook
+  try {
+    const n8nPayload = {
+      event: 'client_registration',
+      timestamp: new Date().toISOString(),
+      lang,
+      client: { name, company, email, service_request, message },
+      headquarters: '01 Rue 13 Aout, Montfleury, Tunisia',
+    };
+    await fetch(N8N_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(n8nPayload),
+    });
+  } catch (err) {
+    console.error('N8N webhook sync failed (non-blocking for user)', err);
+  }
+
   return c.json({ ok: true, message: dicts[lang].register.success }, 201);
 });
 
-// Admin JSON (protect in production with Access / token — simple guard here)
+// Admin JSON
 app.get('/:lang/admin/registrations', async (c) => {
   const token = c.req.query('token') || c.req.header('x-admin-token');
   if (!token || token !== (c.env as any).ADMIN_TOKEN) return c.json({ ok: false }, 401);

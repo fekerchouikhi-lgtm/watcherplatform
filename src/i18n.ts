@@ -13,7 +13,7 @@ export const LANG_META: Record<Lang, { label: string; dir: 'ltr' | 'rtl'; name: 
 };
 
 export interface Dict {
-  nav: { services: string; sovereign: string; claw: string; research: string; contact: string; register: string };
+  nav: { services: string; sovereign: string; claw: string; chat: string; research: string; contact: string; register: string };
   hero: {
     eyebrow: string;
     titleA: string;
@@ -44,6 +44,14 @@ export interface Dict {
     subtitle: string;
     items: { title: string; desc: string }[];
   };
+  chatSection: {
+    eyebrow: string;
+    title: string;
+    subtitle: string;
+    placeholder: string;
+    send: string;
+    initial: string;
+  };
   research: { eyebrow: string; title: string; subtitle: string; readMore: string };
   register: {
     title: string;
@@ -59,12 +67,12 @@ export interface Dict {
     error: string;
     optional: string;
   };
-  footer: { tagline: string; rights: string; contact: string };
+  footer: { tagline: string; rights: string; contact: string; emailLabel: string; phoneLabel: string; addressLabel: string };
 }
 
 export const dicts: Record<Lang, Dict> = {
   en: {
-    nav: { services: 'Services', sovereign: 'Sovereign AI', claw: 'Watcher Claw', research: 'Research', contact: 'Contact', register: 'Get started' },
+    nav: { services: 'Services', sovereign: 'Sovereign AI', claw: 'Watcher Claw', chat: 'AI Sales Agent', research: 'Research', contact: 'Contact', register: 'Get started' },
     hero: {
       eyebrow: 'Watcher IA · AI agents that work',
       titleA: 'BUILD YOUR BUSINESS WITH',
@@ -115,10 +123,18 @@ export const dicts: Record<Lang, Dict> = {
         { title: 'Responsible Design', desc: 'Technology dedicated to human dignity and operational excellence.' },
       ],
     },
+    chatSection: {
+      eyebrow: 'Interactive Advisory',
+      title: 'Talk with Watcher AI Sales Agent',
+      subtitle: 'Ask about our autonomous workforces, sovereign infrastructure, or custom enterprise architecture.',
+      placeholder: 'Type your inquiry regarding Watcher IA agents...',
+      send: 'Transmit Query',
+      initial: 'Greetings. I am the Watcher AI Sales Agent. How may I assist your enterprise in deploying autonomous workflows today?',
+    },
     research: { eyebrow: 'Research & notes', title: 'From the lab', subtitle: 'Operational playbooks on agentic automation.', readMore: 'Read note' },
     register: {
       title: 'Client registration',
-      subtitle: 'Tell us about your use case. We reply within 1 business day.',
+      subtitle: 'Tell us about your use case. We reply within 1 business day and sync directly to our orchestration pipeline.',
       name: 'Full name', company: 'Company', email: 'Work email', service: 'Service request',
       message: 'Briefly describe your need',
       services: [
@@ -128,12 +144,12 @@ export const dicts: Record<Lang, Dict> = {
         { value: 'consulting_governance', label: 'Consulting & Digital Governance' },
         { value: 'other', label: 'Other' },
       ],
-      submit: 'Submit request', success: 'Request received. Our team will contact you shortly.', error: 'Submission failed. Check fields and retry.', optional: 'optional',
+      submit: 'Submit request', success: 'Request received and transmitted to orchestration pipeline. Our team will contact you shortly.', error: 'Submission failed. Check fields and retry.', optional: 'optional',
     },
-    footer: { tagline: 'AI agents that work. Automate everything. Scale without limits.', rights: 'All rights reserved.', contact: 'Contact' },
+    footer: { tagline: 'AI agents that work. Automate everything. Scale without limits.', rights: 'All rights reserved.', contact: 'Contact', emailLabel: 'Email', phoneLabel: 'Phone', addressLabel: 'Headquarters' },
   },
   fr: {
-    nav: { services: 'Services', sovereign: 'IA souveraine', claw: 'Watcher Claw', research: 'Recherche', contact: 'Contact', register: 'Démarrer' },
+    nav: { services: 'Services', sovereign: 'IA souveraine', claw: 'Watcher Claw', chat: 'Agent IA', research: 'Recherche', contact: 'Contact', register: 'Démarrer' },
     hero: {
       eyebrow: 'Watcher IA · des agents IA qui travaillent',
       titleA: 'DÉVELOPPEZ VOTRE ENTREPRISE AVEC',
@@ -184,10 +200,18 @@ export const dicts: Record<Lang, Dict> = {
         { title: 'Conception Responsable', desc: 'La technologie au service de la dignité humaine.' },
       ],
     },
+    chatSection: {
+      eyebrow: 'Conseil Interactif',
+      title: 'Échangez avec l’Agent Commercial Watcher IA',
+      subtitle: 'Interrogez notre système sur nos workforces autonomes, notre infrastructure souveraine ou notre architecture sur mesure.',
+      placeholder: 'Tapez votre question concernant les agents Watcher IA...',
+      send: 'Transmettre',
+      initial: 'Salutations. Je suis l’agent commercial Watcher IA. Comment puis-je assister votre entreprise dans le déploiement de flux autonomes aujourd’hui ?',
+    },
     research: { eyebrow: 'Recherche & notes', title: 'Depuis le labo', subtitle: 'Playbooks opérationnels sur l’automatisation agentique.', readMore: 'Lire la note' },
     register: {
       title: 'Inscription client',
-      subtitle: 'Décrivez votre besoin. Réponse sous 1 jour ouvré.',
+      subtitle: 'Décrivez votre besoin. Réponse sous 1 jour ouvré et synchronisation directe avec notre pipeline d’orchestration.',
       name: 'Nom complet', company: 'Société', email: 'Email pro', service: 'Service demandé',
       message: 'Décrivez brièvement votre besoin',
       services: [
@@ -197,12 +221,12 @@ export const dicts: Record<Lang, Dict> = {
         { value: 'consulting_governance', label: 'Conseil & gouvernance digitale' },
         { value: 'other', label: 'Autre' },
       ],
-      submit: 'Envoyer la demande', success: 'Demande reçue. Notre équipe vous contactera rapidement.', error: 'Échec d’envoi. Vérifiez les champs et réessayez.', optional: 'optionnel',
+      submit: 'Envoyer la demande', success: 'Demande reçue et transmise au pipeline d’orchestration. Notre équipe vous contactera rapidement.', error: 'Échec d’envoi. Vérifiez les champs et réessayez.', optional: 'optionnel',
     },
-    footer: { tagline: 'Des agents IA qui travaillent. Automatisez tout. Scalez sans limites.', rights: 'Tous droits réservés.', contact: 'Contact' },
+    footer: { tagline: 'Des agents IA qui travaillent. Automatisez tout. Scalez sans limites.', rights: 'Tous droits réservés.', contact: 'Contact', emailLabel: 'Email', phoneLabel: 'Téléphone', addressLabel: 'Siège social' },
   },
   ar: {
-    nav: { services: 'الخدمات', sovereign: 'ذكاء سيادي', claw: 'واتشر كلو', research: 'الأبحاث', contact: 'اتصل بنا', register: 'ابدأ الآن' },
+    nav: { services: 'الخدمات', sovereign: 'ذكاء سيادي', claw: 'واتشر كلو', chat: 'مستشار الذكاء', research: 'الأبحاث', contact: 'اتصل بنا', register: 'ابدأ الآن' },
     hero: {
       eyebrow: 'واتشر IA · وكلاء ذكاء يعملون فعلاً',
       titleA: 'طوّر أعمالك مع',
@@ -253,10 +277,18 @@ export const dicts: Record<Lang, Dict> = {
         { title: 'التصميم المسؤول', desc: 'تكنولوجيا مسخرة لكرامة الإنسان والتميز التشغيلي.' },
       ],
     },
+    chatSection: {
+      eyebrow: 'استشارة تفاعلية',
+      title: 'تحدث مع مستشار المبيعات الآلي لـ Watcher IA',
+      subtitle: 'استفسر حول قوانا العاملة الذاتية، بنيتنا التحتية السيادية، أو هندسة المؤسسات المخصصة.',
+      placeholder: 'اكتب استفسارك حول وكلاء Watcher IA...',
+      send: 'إرسال الاستعلام',
+      initial: 'مرحباً بك. أنا مستشار المبيعات الآلي لـ Watcher IA. كيف يمكنني مساعدة مؤسستك في نشر سير العمل الذاتي اليوم؟',
+    },
     research: { eyebrow: 'أبحاث ومدونات', title: 'من المختبر', subtitle: 'أدلة تشغيلية حول الأتمتة الوكيلية.', readMore: 'اقرأ المقال' },
     register: {
       title: 'تسجيل العملاء',
-      subtitle: 'أخبرنا عن حالتك. نرد خلال يوم عمل واحد.',
+      subtitle: 'أخبرنا عن حالتك. نرد خلال يوم عمل واحد مع مزامنة فورية إلى خط الأنابيب التنسيقي لدينا.',
       name: 'الاسم الكامل', company: 'الشركة', email: 'البريد المهني', service: 'الخدمة المطلوبة',
       message: 'صف باختصار احتياجك',
       services: [
@@ -266,8 +298,8 @@ export const dicts: Record<Lang, Dict> = {
         { value: 'consulting_governance', label: 'استشارات وحوكمة رقمية' },
         { value: 'other', label: 'أخرى' },
       ],
-      submit: 'إرسال الطلب', success: 'تم استلاستلام الطلب. سيتواصل معك فريقنا قريباً.', error: 'فشل الإرسال. تحقق من الحقول وحاول مجدداً.', optional: 'اختياري',
+      submit: 'إرسال الطلب', success: 'تم استلام الطلب وإرساله إلى خط الأنابيب. سيتواصل معك فريقنا قريباً.', error: 'فشل الإرسال. تحقق من الحقول وحاول مجدداً.', optional: 'اختياري',
     },
-    footer: { tagline: 'وكلاء ذكاء يعملون. أتمت كل شيء. توسّع بلا حدود.', rights: 'جميع الحقوق محفوظة.', contact: 'اتصل بنا' },
+    footer: { tagline: 'وكلاء ذكاء يعملون. أتمت كل شيء. توسّع بلا حدود.', rights: 'جميع الحقوق محفوظة.', contact: 'اتصل بنا', emailLabel: 'البريد', phoneLabel: 'الهاتف', addressLabel: 'المقر الرئيسي' },
   },
 };

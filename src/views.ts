@@ -4,7 +4,7 @@ import { LANG_META } from './i18n';
 export const CONTACT = {
   email: 'CEO@WATCHERIA.CLOUD',
   phone: '+21621304255',
-  address: '01 Rue 13 Aout, Manflouri, Tunisia',
+  address: '01 Rue 13 Aout, Montfleury, Tunisia',
   domain: 'watcheria.ai',
 };
 
@@ -91,6 +91,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
       <a class="hover:text-watcher-blue" href="/${lang}#services">${esc(dict.nav.services)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#sovereign">${esc(dict.nav.sovereign)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#claw">${esc(dict.nav.claw)}</a>
+      <a class="hover:text-watcher-blue" href="/${lang}#chat">${esc(dict.nav.chat)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#research">${esc(dict.nav.research)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#contact">${esc(dict.nav.contact)}</a>
     </nav>
@@ -106,6 +107,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
       <a href="/${lang}#services">${esc(dict.nav.services)}</a>
       <a href="/${lang}#sovereign">${esc(dict.nav.sovereign)}</a>
       <a href="/${lang}#claw">${esc(dict.nav.claw)}</a>
+      <a href="/${lang}#chat">${esc(dict.nav.chat)}</a>
       <a href="/${lang}#research">${esc(dict.nav.research)}</a>
       <a href="/${lang}#contact">${esc(dict.nav.contact)}</a>
       <a href="/${lang}#register" class="rounded-full bg-watcher-red px-4 py-2 text-center font-bold text-white">${esc(dict.nav.register)}</a>
@@ -132,9 +134,9 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
     <div>
       <p class="text-sm font-bold uppercase tracking-widest text-slate-400">${esc(dict.footer.contact)}</p>
       <ul class="mt-3 space-y-2 text-sm">
-        <li><a class="hover:text-watcher-cyan" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
-        <li><a class="hover:text-watcher-cyan" href="tel:${CONTACT.phone.replace(/\s/g, '')}">${CONTACT.phone}</a></li>
-        <li class="text-slate-300">${esc(CONTACT.address)}</li>
+        <li><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.emailLabel)}</span><a class="hover:text-watcher-cyan" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
+        <li class="mt-2"><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.phoneLabel)}</span><a class="hover:text-watcher-cyan" href="tel:${CONTACT.phone.replace(/\s/g, '')}">${CONTACT.phone}</a></li>
+        <li class="mt-2"><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.addressLabel)}</span><span class="text-slate-300">${esc(CONTACT.address)}</span></li>
       </ul>
     </div>
     <div>
@@ -166,7 +168,7 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
       <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-watcher-blue">${esc(s.tag)}</p>
       <h3 class="mt-2 text-xl font-extrabold">${esc(s.title)}</h3>
       <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${esc(s.desc)}</p>
-      <a href="/${lang}#register" data-service="${s.key}" class="svc-cta mt-4 inline-flex items-center gap-2 text-sm font-bold text-watcher-red">→ ${esc(dict.nav.register)} <span class="font-mono text-xs opacity-60">0${i + 1}</span></a>
+      <a href="/${lang}#register" data-service="${s.key}" class="svc-cta mt-4 inline-flex items-center gap-2 text-sm font-bold text-watcher-red">${esc(dict.nav.register)} <span class="font-mono text-xs opacity-60">0${i + 1}</span></a>
     </article>`
     )
     .join('');
@@ -198,7 +200,7 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
         <p class="text-xs font-semibold text-slate-500">${esc((p.published_at || '').slice(0, 10))} · ${esc(p.slug)}</p>
         <h3 class="mt-2 text-lg font-extrabold leading-snug">${esc(p.title)}</h3>
         <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
-        <a href="/${lang}/blog/${esc(p.slug)}" class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)} →</a>
+        <a href="/${lang}/blog/${esc(p.slug)}" class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)}</a>
       </article>`
           )
           .join('');
@@ -240,7 +242,7 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
         <p class="mt-4 text-slate-300 leading-relaxed">${esc(dict.claw.subtitle)}</p>
         <div class="mt-8 grid grid-cols-3 gap-4">${clawStats}</div>
         <div class="mt-8">
-          <a href="/${lang}#register" class="rounded-full bg-watcher-cyan px-7 py-3.5 font-bold text-watcher-deep hover:bg-white">${esc(dict.claw.cta)} →</a>
+          <a href="/${lang}#register" class="rounded-full bg-watcher-cyan px-7 py-3.5 font-bold text-watcher-deep hover:bg-white">${esc(dict.claw.cta)}</a>
         </div>
       </div>
       <div class="relative rounded-3xl border border-white/15 bg-white/5 p-4 shadow-2xl backdrop-blur">
@@ -268,6 +270,29 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
     <h2 class="mt-2 max-w-2xl text-3xl font-black sm:text-4xl">${esc(dict.services.title)}</h2>
     <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.services.subtitle)}</p>
     <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">${serviceCards}</div>
+  </div>
+</section>
+
+<!-- AI SALES AGENT (TEXT-ONLY CHAT INTERFACE WITH SSE) -->
+<section id="chat" class="bg-white dark:bg-watcher-deep py-20 border-y border-slate-200 dark:border-white/10">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="text-center">
+      <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-cyan">${esc(dict.chatSection.eyebrow)}</p>
+      <h2 class="mt-2 text-3xl font-black sm:text-4xl">${esc(dict.chatSection.title)}</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.chatSection.subtitle)}</p>
+    </div>
+    <div class="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-2xl dark:border-white/10 dark:bg-watcher-navy/50">
+      <div id="chatHistory" class="space-y-4 max-h-[380px] overflow-y-auto p-4 font-mono text-xs">
+        <div class="rounded-2xl bg-white p-4 border border-slate-200 dark:bg-white/5 dark:border-white/10">
+          <p class="text-[10px] uppercase font-bold tracking-widest text-watcher-cyan">Watcher AI Sales Agent</p>
+          <p class="mt-1 text-slate-800 dark:text-slate-200">${esc(dict.chatSection.initial)}</p>
+        </div>
+      </div>
+      <form id="chatForm" data-lang="${lang}" class="mt-6 flex gap-3">
+        <input id="chatInput" required class="flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:outline-none dark:border-white/15 dark:bg-watcher-deep dark:text-white" placeholder="${esc(dict.chatSection.placeholder)}"/>
+        <button type="submit" class="rounded-xl bg-watcher-blue px-6 py-3 text-sm font-bold text-white hover:opacity-90">${esc(dict.chatSection.send)}</button>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -301,7 +326,7 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
     <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-blue">${esc(dict.research.eyebrow)}</p>
     <div class="flex flex-wrap items-end justify-between gap-3">
       <h2 class="text-3xl font-black sm:text-4xl">${esc(dict.research.title)}</h2>
-      <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue">/ ${esc(dict.nav.research)} →</a>
+      <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue">/ ${esc(dict.nav.research)}</a>
     </div>
     <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.research.subtitle)}</p>
     <div class="mt-10 grid gap-6 md:grid-cols-3">${postCards}</div>
@@ -314,11 +339,11 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
     <div>
       <h2 class="text-3xl font-black sm:text-4xl">${esc(dict.register.title)}</h2>
       <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.register.subtitle)}</p>
-      <ul class="mt-8 space-y-3 text-sm">
-        <li class="flex items-center gap-3">✉️ <a class="font-bold text-watcher-blue" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
-        <li class="flex items-center gap-3">📞 <a class="font-bold" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></li>
-        <li class="flex items-center gap-3">📍 ${esc(CONTACT.address)}</li>
-      </ul>
+      <div class="mt-8 space-y-3 text-sm">
+        <div><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.emailLabel)}</span><a class="font-bold text-watcher-blue" href="mailto:${CONTACT.email}">${CONTACT.email}</a></div>
+        <div class="mt-3"><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.phoneLabel)}</span><a class="font-bold" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></div>
+        <div class="mt-3"><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.addressLabel)}</span><span class="font-semibold">${esc(CONTACT.address)}</span></div>
+      </div>
     </div>
     <form id="regForm" data-lang="${lang}" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl dark:border-white/10 dark:bg-white/5">
       <div class="grid gap-4 sm:grid-cols-2">
@@ -347,7 +372,7 @@ export function blogIndexPage(lang: Lang, dict: Dict, posts: PostRow[]): string 
       <p class="text-xs text-slate-500">${esc((p.published_at || '').slice(0, 10))}</p>
       <h3 class="mt-2 text-xl font-extrabold">${esc(p.title)}</h3>
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
-      <span class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)} →</span></a>`
+      <span class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)}</span></a>`
     )
     .join('');
   return `<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6">

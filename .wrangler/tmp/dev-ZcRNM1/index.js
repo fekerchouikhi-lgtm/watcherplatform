@@ -6,7 +6,7 @@ var __publicField = (obj, key, value) => {
   return value;
 };
 
-// .wrangler/tmp/bundle-qyNVg3/strip-cf-connecting-ip-header.js
+// .wrangler/tmp/bundle-hCmJGF/strip-cf-connecting-ip-header.js
 function stripCfConnectingIPHeader(input, init) {
   const request = new Request(input, init);
   request.headers.delete("CF-Connecting-IP");
@@ -2970,7 +2970,7 @@ var LANG_META = {
 };
 var dicts = {
   en: {
-    nav: { services: "Services", sovereign: "Sovereign AI", claw: "Watcher Claw", research: "Research", contact: "Contact", register: "Get started" },
+    nav: { services: "Services", sovereign: "Sovereign AI", claw: "Watcher Claw", chat: "AI Sales Agent", research: "Research", contact: "Contact", register: "Get started" },
     hero: {
       eyebrow: "Watcher IA \xB7 AI agents that work",
       titleA: "BUILD YOUR BUSINESS WITH",
@@ -3021,10 +3021,18 @@ var dicts = {
         { title: "Responsible Design", desc: "Technology dedicated to human dignity and operational excellence." }
       ]
     },
+    chatSection: {
+      eyebrow: "Interactive Advisory",
+      title: "Talk with Watcher AI Sales Agent",
+      subtitle: "Ask about our autonomous workforces, sovereign infrastructure, or custom enterprise architecture.",
+      placeholder: "Type your inquiry regarding Watcher IA agents...",
+      send: "Transmit Query",
+      initial: "Greetings. I am the Watcher AI Sales Agent. How may I assist your enterprise in deploying autonomous workflows today?"
+    },
     research: { eyebrow: "Research & notes", title: "From the lab", subtitle: "Operational playbooks on agentic automation.", readMore: "Read note" },
     register: {
       title: "Client registration",
-      subtitle: "Tell us about your use case. We reply within 1 business day.",
+      subtitle: "Tell us about your use case. We reply within 1 business day and sync directly to our orchestration pipeline.",
       name: "Full name",
       company: "Company",
       email: "Work email",
@@ -3038,14 +3046,14 @@ var dicts = {
         { value: "other", label: "Other" }
       ],
       submit: "Submit request",
-      success: "Request received. Our team will contact you shortly.",
+      success: "Request received and transmitted to orchestration pipeline. Our team will contact you shortly.",
       error: "Submission failed. Check fields and retry.",
       optional: "optional"
     },
-    footer: { tagline: "AI agents that work. Automate everything. Scale without limits.", rights: "All rights reserved.", contact: "Contact" }
+    footer: { tagline: "AI agents that work. Automate everything. Scale without limits.", rights: "All rights reserved.", contact: "Contact", emailLabel: "Email", phoneLabel: "Phone", addressLabel: "Headquarters" }
   },
   fr: {
-    nav: { services: "Services", sovereign: "IA souveraine", claw: "Watcher Claw", research: "Recherche", contact: "Contact", register: "D\xE9marrer" },
+    nav: { services: "Services", sovereign: "IA souveraine", claw: "Watcher Claw", chat: "Agent IA", research: "Recherche", contact: "Contact", register: "D\xE9marrer" },
     hero: {
       eyebrow: "Watcher IA \xB7 des agents IA qui travaillent",
       titleA: "D\xC9VELOPPEZ VOTRE ENTREPRISE AVEC",
@@ -3096,10 +3104,18 @@ var dicts = {
         { title: "Conception Responsable", desc: "La technologie au service de la dignit\xE9 humaine." }
       ]
     },
+    chatSection: {
+      eyebrow: "Conseil Interactif",
+      title: "\xC9changez avec l\u2019Agent Commercial Watcher IA",
+      subtitle: "Interrogez notre syst\xE8me sur nos workforces autonomes, notre infrastructure souveraine ou notre architecture sur mesure.",
+      placeholder: "Tapez votre question concernant les agents Watcher IA...",
+      send: "Transmettre",
+      initial: "Salutations. Je suis l\u2019agent commercial Watcher IA. Comment puis-je assister votre entreprise dans le d\xE9ploiement de flux autonomes aujourd\u2019hui ?"
+    },
     research: { eyebrow: "Recherche & notes", title: "Depuis le labo", subtitle: "Playbooks op\xE9rationnels sur l\u2019automatisation agentique.", readMore: "Lire la note" },
     register: {
       title: "Inscription client",
-      subtitle: "D\xE9crivez votre besoin. R\xE9ponse sous 1 jour ouvr\xE9.",
+      subtitle: "D\xE9crivez votre besoin. R\xE9ponse sous 1 jour ouvr\xE9 et synchronisation directe avec notre pipeline d\u2019orchestration.",
       name: "Nom complet",
       company: "Soci\xE9t\xE9",
       email: "Email pro",
@@ -3113,14 +3129,14 @@ var dicts = {
         { value: "other", label: "Autre" }
       ],
       submit: "Envoyer la demande",
-      success: "Demande re\xE7ue. Notre \xE9quipe vous contactera rapidement.",
+      success: "Demande re\xE7ue et transmise au pipeline d\u2019orchestration. Notre \xE9quipe vous contactera rapidement.",
       error: "\xC9chec d\u2019envoi. V\xE9rifiez les champs et r\xE9essayez.",
       optional: "optionnel"
     },
-    footer: { tagline: "Des agents IA qui travaillent. Automatisez tout. Scalez sans limites.", rights: "Tous droits r\xE9serv\xE9s.", contact: "Contact" }
+    footer: { tagline: "Des agents IA qui travaillent. Automatisez tout. Scalez sans limites.", rights: "Tous droits r\xE9serv\xE9s.", contact: "Contact", emailLabel: "Email", phoneLabel: "T\xE9l\xE9phone", addressLabel: "Si\xE8ge social" }
   },
   ar: {
-    nav: { services: "\u0627\u0644\u062E\u062F\u0645\u0627\u062A", sovereign: "\u0630\u0643\u0627\u0621 \u0633\u064A\u0627\u062F\u064A", claw: "\u0648\u0627\u062A\u0634\u0631 \u0643\u0644\u0648", research: "\u0627\u0644\u0623\u0628\u062D\u0627\u062B", contact: "\u0627\u062A\u0635\u0644 \u0628\u0646\u0627", register: "\u0627\u0628\u062F\u0623 \u0627\u0644\u0622\u0646" },
+    nav: { services: "\u0627\u0644\u062E\u062F\u0645\u0627\u062A", sovereign: "\u0630\u0643\u0627\u0621 \u0633\u064A\u0627\u062F\u064A", claw: "\u0648\u0627\u062A\u0634\u0631 \u0643\u0644\u0648", chat: "\u0645\u0633\u062A\u0634\u0627\u0631 \u0627\u0644\u0630\u0643\u0627\u0621", research: "\u0627\u0644\u0623\u0628\u062D\u0627\u062B", contact: "\u0627\u062A\u0635\u0644 \u0628\u0646\u0627", register: "\u0627\u0628\u062F\u0623 \u0627\u0644\u0622\u0646" },
     hero: {
       eyebrow: "\u0648\u0627\u062A\u0634\u0631 IA \xB7 \u0648\u0643\u0644\u0627\u0621 \u0630\u0643\u0627\u0621 \u064A\u0639\u0645\u0644\u0648\u0646 \u0641\u0639\u0644\u0627\u064B",
       titleA: "\u0637\u0648\u0651\u0631 \u0623\u0639\u0645\u0627\u0644\u0643 \u0645\u0639",
@@ -3171,10 +3187,18 @@ var dicts = {
         { title: "\u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u0645\u0633\u0624\u0648\u0644", desc: "\u062A\u0643\u0646\u0648\u0644\u0648\u062C\u064A\u0627 \u0645\u0633\u062E\u0631\u0629 \u0644\u0643\u0631\u0627\u0645\u0629 \u0627\u0644\u0625\u0646\u0633\u0627\u0646 \u0648\u0627\u0644\u062A\u0645\u064A\u0632 \u0627\u0644\u062A\u0634\u063A\u064A\u0644\u064A." }
       ]
     },
+    chatSection: {
+      eyebrow: "\u0627\u0633\u062A\u0634\u0627\u0631\u0629 \u062A\u0641\u0627\u0639\u0644\u064A\u0629",
+      title: "\u062A\u062D\u062F\u062B \u0645\u0639 \u0645\u0633\u062A\u0634\u0627\u0631 \u0627\u0644\u0645\u0628\u064A\u0639\u0627\u062A \u0627\u0644\u0622\u0644\u064A \u0644\u0640 Watcher IA",
+      subtitle: "\u0627\u0633\u062A\u0641\u0633\u0631 \u062D\u0648\u0644 \u0642\u0648\u0627\u0646\u0627 \u0627\u0644\u0639\u0627\u0645\u0644\u0629 \u0627\u0644\u0630\u0627\u062A\u064A\u0629\u060C \u0628\u0646\u064A\u062A\u0646\u0627 \u0627\u0644\u062A\u062D\u062A\u064A\u0629 \u0627\u0644\u0633\u064A\u0627\u062F\u064A\u0629\u060C \u0623\u0648 \u0647\u0646\u062F\u0633\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u0627\u062A \u0627\u0644\u0645\u062E\u0635\u0635\u0629.",
+      placeholder: "\u0627\u0643\u062A\u0628 \u0627\u0633\u062A\u0641\u0633\u0627\u0631\u0643 \u062D\u0648\u0644 \u0648\u0643\u0644\u0627\u0621 Watcher IA...",
+      send: "\u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0627\u0633\u062A\u0639\u0644\u0627\u0645",
+      initial: "\u0645\u0631\u062D\u0628\u0627\u064B \u0628\u0643. \u0623\u0646\u0627 \u0645\u0633\u062A\u0634\u0627\u0631 \u0627\u0644\u0645\u0628\u064A\u0639\u0627\u062A \u0627\u0644\u0622\u0644\u064A \u0644\u0640 Watcher IA. \u0643\u064A\u0641 \u064A\u0645\u0643\u0646\u0646\u064A \u0645\u0633\u0627\u0639\u062F\u0629 \u0645\u0624\u0633\u0633\u062A\u0643 \u0641\u064A \u0646\u0634\u0631 \u0633\u064A\u0631 \u0627\u0644\u0639\u0645\u0644 \u0627\u0644\u0630\u0627\u062A\u064A \u0627\u0644\u064A\u0648\u0645\u061F"
+    },
     research: { eyebrow: "\u0623\u0628\u062D\u0627\u062B \u0648\u0645\u062F\u0648\u0646\u0627\u062A", title: "\u0645\u0646 \u0627\u0644\u0645\u062E\u062A\u0628\u0631", subtitle: "\u0623\u062F\u0644\u0629 \u062A\u0634\u063A\u064A\u0644\u064A\u0629 \u062D\u0648\u0644 \u0627\u0644\u0623\u062A\u0645\u062A\u0629 \u0627\u0644\u0648\u0643\u064A\u0644\u064A\u0629.", readMore: "\u0627\u0642\u0631\u0623 \u0627\u0644\u0645\u0642\u0627\u0644" },
     register: {
       title: "\u062A\u0633\u062C\u064A\u0644 \u0627\u0644\u0639\u0645\u0644\u0627\u0621",
-      subtitle: "\u0623\u062E\u0628\u0631\u0646\u0627 \u0639\u0646 \u062D\u0627\u0644\u062A\u0643. \u0646\u0631\u062F \u062E\u0644\u0627\u0644 \u064A\u0648\u0645 \u0639\u0645\u0644 \u0648\u0627\u062D\u062F.",
+      subtitle: "\u0623\u062E\u0628\u0631\u0646\u0627 \u0639\u0646 \u062D\u0627\u0644\u062A\u0643. \u0646\u0631\u062F \u062E\u0644\u0627\u0644 \u064A\u0648\u0645 \u0639\u0645\u0644 \u0648\u0627\u062D\u062F \u0645\u0639 \u0645\u0632\u0627\u0645\u0646\u0629 \u0641\u0648\u0631\u064A\u0629 \u0625\u0644\u0649 \u062E\u0637 \u0627\u0644\u0623\u0646\u0627\u0628\u064A\u0628 \u0627\u0644\u062A\u0646\u0633\u064A\u0642\u064A \u0644\u062F\u064A\u0646\u0627.",
       name: "\u0627\u0644\u0627\u0633\u0645 \u0627\u0644\u0643\u0627\u0645\u0644",
       company: "\u0627\u0644\u0634\u0631\u0643\u0629",
       email: "\u0627\u0644\u0628\u0631\u064A\u062F \u0627\u0644\u0645\u0647\u0646\u064A",
@@ -3188,11 +3212,11 @@ var dicts = {
         { value: "other", label: "\u0623\u062E\u0631\u0649" }
       ],
       submit: "\u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0637\u0644\u0628",
-      success: "\u062A\u0645 \u0627\u0633\u062A\u0644\u0627\u0633\u062A\u0644\u0627\u0645 \u0627\u0644\u0637\u0644\u0628. \u0633\u064A\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0643 \u0641\u0631\u064A\u0642\u0646\u0627 \u0642\u0631\u064A\u0628\u0627\u064B.",
+      success: "\u062A\u0645 \u0627\u0633\u062A\u0644\u0627\u0645 \u0627\u0644\u0637\u0644\u0628 \u0648\u0625\u0631\u0633\u0627\u0644\u0647 \u0625\u0644\u0649 \u062E\u0637 \u0627\u0644\u0623\u0646\u0627\u0628\u064A\u0628. \u0633\u064A\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0643 \u0641\u0631\u064A\u0642\u0646\u0627 \u0642\u0631\u064A\u0628\u0627\u064B.",
       error: "\u0641\u0634\u0644 \u0627\u0644\u0625\u0631\u0633\u0627\u0644. \u062A\u062D\u0642\u0642 \u0645\u0646 \u0627\u0644\u062D\u0642\u0648\u0644 \u0648\u062D\u0627\u0648\u0644 \u0645\u062C\u062F\u062F\u0627\u064B.",
       optional: "\u0627\u062E\u062A\u064A\u0627\u0631\u064A"
     },
-    footer: { tagline: "\u0648\u0643\u0644\u0627\u0621 \u0630\u0643\u0627\u0621 \u064A\u0639\u0645\u0644\u0648\u0646. \u0623\u062A\u0645\u062A \u0643\u0644 \u0634\u064A\u0621. \u062A\u0648\u0633\u0651\u0639 \u0628\u0644\u0627 \u062D\u062F\u0648\u062F.", rights: "\u062C\u0645\u064A\u0639 \u0627\u0644\u062D\u0642\u0648\u0642 \u0645\u062D\u0641\u0648\u0638\u0629.", contact: "\u0627\u062A\u0635\u0644 \u0628\u0646\u0627" }
+    footer: { tagline: "\u0648\u0643\u0644\u0627\u0621 \u0630\u0643\u0627\u0621 \u064A\u0639\u0645\u0644\u0648\u0646. \u0623\u062A\u0645\u062A \u0643\u0644 \u0634\u064A\u0621. \u062A\u0648\u0633\u0651\u0639 \u0628\u0644\u0627 \u062D\u062F\u0648\u062F.", rights: "\u062C\u0645\u064A\u0639 \u0627\u0644\u062D\u0642\u0648\u0642 \u0645\u062D\u0641\u0648\u0638\u0629.", contact: "\u0627\u062A\u0635\u0644 \u0628\u0646\u0627", emailLabel: "\u0627\u0644\u0628\u0631\u064A\u062F", phoneLabel: "\u0627\u0644\u0647\u0627\u062A\u0641", addressLabel: "\u0627\u0644\u0645\u0642\u0631 \u0627\u0644\u0631\u0626\u064A\u0633\u064A" }
   }
 };
 
@@ -3200,7 +3224,7 @@ var dicts = {
 var CONTACT = {
   email: "CEO@WATCHERIA.CLOUD",
   phone: "+21621304255",
-  address: "01 Rue 13 Aout, Manflouri, Tunisia",
+  address: "01 Rue 13 Aout, Montfleury, Tunisia",
   domain: "watcheria.ai"
 };
 function esc(s) {
@@ -3269,6 +3293,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
       <a class="hover:text-watcher-blue" href="/${lang}#services">${esc(dict.nav.services)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#sovereign">${esc(dict.nav.sovereign)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#claw">${esc(dict.nav.claw)}</a>
+      <a class="hover:text-watcher-blue" href="/${lang}#chat">${esc(dict.nav.chat)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#research">${esc(dict.nav.research)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#contact">${esc(dict.nav.contact)}</a>
     </nav>
@@ -3284,6 +3309,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
       <a href="/${lang}#services">${esc(dict.nav.services)}</a>
       <a href="/${lang}#sovereign">${esc(dict.nav.sovereign)}</a>
       <a href="/${lang}#claw">${esc(dict.nav.claw)}</a>
+      <a href="/${lang}#chat">${esc(dict.nav.chat)}</a>
       <a href="/${lang}#research">${esc(dict.nav.research)}</a>
       <a href="/${lang}#contact">${esc(dict.nav.contact)}</a>
       <a href="/${lang}#register" class="rounded-full bg-watcher-red px-4 py-2 text-center font-bold text-white">${esc(dict.nav.register)}</a>
@@ -3310,9 +3336,9 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
     <div>
       <p class="text-sm font-bold uppercase tracking-widest text-slate-400">${esc(dict.footer.contact)}</p>
       <ul class="mt-3 space-y-2 text-sm">
-        <li><a class="hover:text-watcher-cyan" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
-        <li><a class="hover:text-watcher-cyan" href="tel:${CONTACT.phone.replace(/\s/g, "")}">${CONTACT.phone}</a></li>
-        <li class="text-slate-300">${esc(CONTACT.address)}</li>
+        <li><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.emailLabel)}</span><a class="hover:text-watcher-cyan" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
+        <li class="mt-2"><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.phoneLabel)}</span><a class="hover:text-watcher-cyan" href="tel:${CONTACT.phone.replace(/\s/g, "")}">${CONTACT.phone}</a></li>
+        <li class="mt-2"><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.addressLabel)}</span><span class="text-slate-300">${esc(CONTACT.address)}</span></li>
       </ul>
     </div>
     <div>
@@ -3340,7 +3366,7 @@ function homePage(lang, dict, posts) {
       <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-watcher-blue">${esc(s.tag)}</p>
       <h3 class="mt-2 text-xl font-extrabold">${esc(s.title)}</h3>
       <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${esc(s.desc)}</p>
-      <a href="/${lang}#register" data-service="${s.key}" class="svc-cta mt-4 inline-flex items-center gap-2 text-sm font-bold text-watcher-red">\u2192 ${esc(dict.nav.register)} <span class="font-mono text-xs opacity-60">0${i + 1}</span></a>
+      <a href="/${lang}#register" data-service="${s.key}" class="svc-cta mt-4 inline-flex items-center gap-2 text-sm font-bold text-watcher-red">${esc(dict.nav.register)} <span class="font-mono text-xs opacity-60">0${i + 1}</span></a>
     </article>`
   ).join("");
   const clawStats = dict.claw.stats.map(
@@ -3360,7 +3386,7 @@ function homePage(lang, dict, posts) {
         <p class="text-xs font-semibold text-slate-500">${esc((p.published_at || "").slice(0, 10))} \xB7 ${esc(p.slug)}</p>
         <h3 class="mt-2 text-lg font-extrabold leading-snug">${esc(p.title)}</h3>
         <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
-        <a href="/${lang}/blog/${esc(p.slug)}" class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)} \u2192</a>
+        <a href="/${lang}/blog/${esc(p.slug)}" class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)}</a>
       </article>`
   ).join("");
   const serviceOptions = dict.register.services.map((o) => `<option value="${o.value}">${esc(o.label)}</option>`).join("");
@@ -3397,7 +3423,7 @@ function homePage(lang, dict, posts) {
         <p class="mt-4 text-slate-300 leading-relaxed">${esc(dict.claw.subtitle)}</p>
         <div class="mt-8 grid grid-cols-3 gap-4">${clawStats}</div>
         <div class="mt-8">
-          <a href="/${lang}#register" class="rounded-full bg-watcher-cyan px-7 py-3.5 font-bold text-watcher-deep hover:bg-white">${esc(dict.claw.cta)} \u2192</a>
+          <a href="/${lang}#register" class="rounded-full bg-watcher-cyan px-7 py-3.5 font-bold text-watcher-deep hover:bg-white">${esc(dict.claw.cta)}</a>
         </div>
       </div>
       <div class="relative rounded-3xl border border-white/15 bg-white/5 p-4 shadow-2xl backdrop-blur">
@@ -3425,6 +3451,29 @@ function homePage(lang, dict, posts) {
     <h2 class="mt-2 max-w-2xl text-3xl font-black sm:text-4xl">${esc(dict.services.title)}</h2>
     <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.services.subtitle)}</p>
     <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">${serviceCards}</div>
+  </div>
+</section>
+
+<!-- AI SALES AGENT (TEXT-ONLY CHAT INTERFACE WITH SSE) -->
+<section id="chat" class="bg-white dark:bg-watcher-deep py-20 border-y border-slate-200 dark:border-white/10">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="text-center">
+      <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-cyan">${esc(dict.chatSection.eyebrow)}</p>
+      <h2 class="mt-2 text-3xl font-black sm:text-4xl">${esc(dict.chatSection.title)}</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.chatSection.subtitle)}</p>
+    </div>
+    <div class="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-2xl dark:border-white/10 dark:bg-watcher-navy/50">
+      <div id="chatHistory" class="space-y-4 max-h-[380px] overflow-y-auto p-4 font-mono text-xs">
+        <div class="rounded-2xl bg-white p-4 border border-slate-200 dark:bg-white/5 dark:border-white/10">
+          <p class="text-[10px] uppercase font-bold tracking-widest text-watcher-cyan">Watcher AI Sales Agent</p>
+          <p class="mt-1 text-slate-800 dark:text-slate-200">${esc(dict.chatSection.initial)}</p>
+        </div>
+      </div>
+      <form id="chatForm" data-lang="${lang}" class="mt-6 flex gap-3">
+        <input id="chatInput" required class="flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:outline-none dark:border-white/15 dark:bg-watcher-deep dark:text-white" placeholder="${esc(dict.chatSection.placeholder)}"/>
+        <button type="submit" class="rounded-xl bg-watcher-blue px-6 py-3 text-sm font-bold text-white hover:opacity-90">${esc(dict.chatSection.send)}</button>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -3458,7 +3507,7 @@ function homePage(lang, dict, posts) {
     <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-blue">${esc(dict.research.eyebrow)}</p>
     <div class="flex flex-wrap items-end justify-between gap-3">
       <h2 class="text-3xl font-black sm:text-4xl">${esc(dict.research.title)}</h2>
-      <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue">/ ${esc(dict.nav.research)} \u2192</a>
+      <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue">/ ${esc(dict.nav.research)}</a>
     </div>
     <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.research.subtitle)}</p>
     <div class="mt-10 grid gap-6 md:grid-cols-3">${postCards}</div>
@@ -3471,11 +3520,11 @@ function homePage(lang, dict, posts) {
     <div>
       <h2 class="text-3xl font-black sm:text-4xl">${esc(dict.register.title)}</h2>
       <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.register.subtitle)}</p>
-      <ul class="mt-8 space-y-3 text-sm">
-        <li class="flex items-center gap-3">\u2709\uFE0F <a class="font-bold text-watcher-blue" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
-        <li class="flex items-center gap-3">\u{1F4DE} <a class="font-bold" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></li>
-        <li class="flex items-center gap-3">\u{1F4CD} ${esc(CONTACT.address)}</li>
-      </ul>
+      <div class="mt-8 space-y-3 text-sm">
+        <div><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.emailLabel)}</span><a class="font-bold text-watcher-blue" href="mailto:${CONTACT.email}">${CONTACT.email}</a></div>
+        <div class="mt-3"><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.phoneLabel)}</span><a class="font-bold" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></div>
+        <div class="mt-3"><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.addressLabel)}</span><span class="font-semibold">${esc(CONTACT.address)}</span></div>
+      </div>
     </div>
     <form id="regForm" data-lang="${lang}" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl dark:border-white/10 dark:bg-white/5">
       <div class="grid gap-4 sm:grid-cols-2">
@@ -3503,7 +3552,7 @@ function blogIndexPage(lang, dict, posts) {
       <p class="text-xs text-slate-500">${esc((p.published_at || "").slice(0, 10))}</p>
       <h3 class="mt-2 text-xl font-extrabold">${esc(p.title)}</h3>
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
-      <span class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)} \u2192</span></a>`
+      <span class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)}</span></a>`
   ).join("");
   return `<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
     <h1 class="text-4xl font-black">${esc(dict.research.title)}</h1>
@@ -3533,6 +3582,7 @@ var VALID_SERVICES = /* @__PURE__ */ new Set([
   "consulting_governance",
   "other"
 ]);
+var N8N_WEBHOOK_URL = "https://gideon-ironless-overderisively.ngrok-free.dev/webhook/c94df705-a521-44a9-b215-c4215e6d155e";
 function langOrDefault(param, envLang) {
   if (param && isLang(param))
     return param;
@@ -3542,6 +3592,45 @@ function langOrDefault(param, envLang) {
 }
 __name(langOrDefault, "langOrDefault");
 app.get("/api/health", (c) => c.json({ ok: true, service: "watcher-ia", ts: (/* @__PURE__ */ new Date()).toISOString() }));
+app.get("/api/chat/:lang", async (c) => {
+  const raw2 = c.req.param("lang");
+  const lang = isLang(raw2) ? raw2 : DEFAULT_LANG;
+  const prompt = c.req.query("q") || "";
+  return new Response(
+    new ReadableStream({
+      async start(controller) {
+        const encoder = new TextEncoder();
+        const send2 = /* @__PURE__ */ __name((data) => {
+          controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}
+
+`));
+        }, "send");
+        send2({ status: "reasoning", message: lang === "fr" ? "Analyse de la requ\xEAte par Watcher Claw..." : lang === "ar" ? "\u062C\u0627\u0631\u064A \u062A\u062D\u0644\u064A\u0644 \u0627\u0644\u0627\u0633\u062A\u0639\u0644\u0627\u0645 \u0628\u0648\u0627\u0633\u0637\u0629 Watcher Claw..." : "Analyzing query through Watcher Claw kernel..." });
+        await new Promise((r) => setTimeout(r, 400));
+        send2({ status: "retrieving", message: lang === "fr" ? "Interrogation des bases vectorielles priv\xE9es (ODS)..." : lang === "ar" ? "\u0627\u0633\u062A\u0631\u062C\u0627\u0639 \u0627\u0644\u0645\u0639\u0631\u0641\u0629 \u0645\u0646 \u0642\u0648\u0627\u0639\u062F \u0627\u0644\u0628\u064A\u0627\u0646\u0627\u062A \u0627\u0644\u0633\u064A\u0627\u062F\u064A\u0629 (ODS)..." : "Querying private vector knowledge base (ODS stack)..." });
+        await new Promise((r) => setTimeout(r, 600));
+        let reply = "";
+        const q = prompt.toLowerCase();
+        if (q.includes("price") || q.includes("cost") || q.includes("tarif") || q.includes("prix") || q.includes("\u0633\u0639\u0631") || q.includes("\u062A\u0643\u0644\u0641\u0629")) {
+          reply = lang === "fr" ? "Nos solutions agentiques sont bas\xE9es sur le ROI op\xE9rationnel. Chaque workforce (admin, compta, dev) est calibr\xE9e selon vos volumes. Planifiez un \xE9change avec nos architectes pour un chiffrage pr\xE9cis." : lang === "ar" ? "\u062A\u0639\u062A\u0645\u062F \u062D\u0644\u0648\u0644\u0646\u0627 \u0627\u0644\u0648\u0643\u064A\u0644\u064A\u0629 \u0639\u0644\u0649 \u0627\u0644\u0639\u0627\u0626\u062F \u0627\u0644\u062A\u0634\u063A\u064A\u0644\u064A (ROI). \u064A\u062A\u0645 \u0645\u0639\u0627\u064A\u0631\u0629 \u0643\u0644 \u0642\u0648\u0629 \u0639\u0627\u0645\u0644\u0629 \u0628\u0646\u0627\u0621\u064B \u0639\u0644\u0649 \u062D\u062C\u0645 \u0639\u0645\u0644\u064A\u0627\u062A\u0643. \u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0646\u0627 \u0644\u0644\u062D\u0635\u0648\u0644 \u0639\u0644\u0649 \u062A\u0642\u062F\u064A\u0631 \u0645\u062E\u0635\u0635." : "Our agentic solutions are outcome-based, measured by operational ROI. Each autonomous workforce is customized to your operational volume. Connect with our architects for a precise enterprise quote.";
+        } else if (q.includes("sovereign") || q.includes("ods") || q.includes("private") || q.includes("souverain") || q.includes("\u0633\u064A\u0627")) {
+          reply = lang === "fr" ? "Notre pile ODS / Osmantic garantit un d\xE9ploiement 100% on-premise ou cloud priv\xE9 souverain. Vos donn\xE9es ne quittent jamais votre p\xE9rim\xE8tre de s\xE9curit\xE9." : lang === "ar" ? "\u062A\u0636\u0645\u0646 \u062D\u0632\u0645\u0629 ODS / Osmantic \u0627\u0644\u062E\u0627\u0635\u0629 \u0628\u0646\u0627 \u0646\u0634\u0631\u0627\u064B \u0645\u062D\u0644\u064A\u0627\u064B \u0623\u0648 \u0633\u062D\u0627\u0628\u064A\u0627\u064B \u0633\u064A\u0627\u062F\u064A\u0627\u064B \u0628\u0627\u0644\u0643\u0627\u0645\u0644. \u0628\u064A\u0627\u0646\u0627\u062A\u0643 \u0644\u0627 \u062A\u063A\u0627\u062F\u0631 \u0645\u062D\u064A\u0637\u0643 \u0627\u0644\u0623\u0645\u0646\u064A \u0645\u0637\u0644\u0642\u0627\u064B." : "Our ODS / Osmantic stack guarantees 100% on-premise or sovereign private cloud deployment. Your data never leaves your secure perimeter.";
+        } else {
+          reply = lang === "fr" ? `Watcher IA d\xE9ploie des workforces autonomes (admin, compta, dev) orchestr\xE9es via n8n. Comment pouvons-nous acc\xE9l\xE9rer votre transition vers l'IA agentique ?` : lang === "ar" ? `\u062A\u0642\u0648\u0645 Watcher IA \u0628\u0646\u0634\u0631 \u0642\u0648\u0649 \u0639\u0627\u0645\u0644\u0629 \u0630\u0627\u062A\u064A\u0629 (\u0625\u062F\u0627\u0631\u0629\u060C \u0645\u062D\u0627\u0633\u0628\u0629\u060C \u062A\u0637\u0648\u0631) \u0645\u0646\u0633\u0642\u0629 \u0639\u0628\u0631 n8n. \u0643\u064A\u0641 \u064A\u0645\u0643\u0646\u0646\u0627 \u062A\u0633\u0631\u064A\u0639 \u0627\u0646\u062A\u0642\u0627\u0644\u0643 \u0625\u0644\u0649 \u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0648\u0643\u064A\u0644\u064A\u061F` : `Watcher IA deploys autonomous workforces (admin, accounting, dev) orchestrated via n8n. How can we accelerate your transition to agentic automation at 01 Rue 13 Aout, Montfleury?`;
+        }
+        send2({ status: "complete", reply });
+        controller.close();
+      }
+    }),
+    {
+      headers: {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive"
+      }
+    }
+  );
+});
 app.get("/", (c) => {
   const lang = langOrDefault(void 0, c.env.DEFAULT_LANG);
   return c.redirect(`/${lang}`, 302);
@@ -3626,6 +3715,22 @@ app.post("/:lang/register", async (c) => {
     console.error("D1 insert failed", e);
     return c.json({ ok: false, error: "db_error" }, 500);
   }
+  try {
+    const n8nPayload = {
+      event: "client_registration",
+      timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+      lang,
+      client: { name, company, email, service_request, message },
+      headquarters: "01 Rue 13 Aout, Montfleury, Tunisia"
+    };
+    await fetch(N8N_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(n8nPayload)
+    });
+  } catch (err) {
+    console.error("N8N webhook sync failed (non-blocking for user)", err);
+  }
   return c.json({ ok: true, message: dicts[lang].register.success }, 201);
 });
 app.get("/:lang/admin/registrations", async (c) => {
@@ -3678,7 +3783,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env2, _ctx, middlewareCtx
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-qyNVg3/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-hCmJGF/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -3710,7 +3815,7 @@ function __facade_invoke__(request, env2, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// .wrangler/tmp/bundle-qyNVg3/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-hCmJGF/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

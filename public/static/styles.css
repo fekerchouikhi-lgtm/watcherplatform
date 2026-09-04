@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Watcher IA — hybrid dark/light theme extras */
+/* Watcher IA — Living Tech Aesthetic */
 :root {
   --watcher-navy: #0a0a40;
   --watcher-deep: #060624;
@@ -13,15 +13,56 @@
 
 html {
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  transition: background-color 500ms ease, color 500ms ease;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark .glass-panel {
+  background: rgba(10, 10, 64, 0.4);
+  border: 1px solid rgba(56, 225, 255, 0.12);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(29, 169, 228, 0.15);
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1) translate(0, 0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.08) translate(15px, -10px);
+    opacity: 0.7;
+  }
+}
+
+.animate-breathe {
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.animate-breathe-delayed {
+  animation: breathe 10s ease-in-out infinite 3s;
 }
 
 .hero-grid {
   background-image:
-    linear-gradient(rgba(56, 225, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 225, 255, 0.07) 1px, transparent 1px),
-    radial-gradient(800px 400px at 70% 10%, rgba(29, 169, 228, 0.25), transparent 60%),
-    radial-gradient(600px 300px at 10% 90%, rgba(255, 30, 45, 0.12), transparent 60%);
-  background-size: 44px 44px, 44px 44px, auto, auto;
+    linear-gradient(rgba(56, 225, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 225, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 /* RTL polish for Arabic */
@@ -29,7 +70,7 @@ html[dir='rtl'] body {
   letter-spacing: 0 !important;
 }
 
-/* Serif display for sovereign section (matches poster aesthetic) */
+/* Serif display for sovereign section */
 .font-serif {
   font-family: 'Playfair Display', 'Noto Naskh Arabic', Georgia, serif;
 }

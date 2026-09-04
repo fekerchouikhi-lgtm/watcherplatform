@@ -28,12 +28,12 @@ export function logoSVG(size = 40): string {
 
 function langSwitcher(current: Lang): string {
   const langs: Lang[] = ['en', 'fr', 'ar'];
-  return `<nav aria-label="Language" class="flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 p-1 text-xs font-bold dark:border-white/15 dark:bg-white/5">
+  return `<nav aria-label="Language" class="flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 p-1 text-xs font-bold transition-colors duration-500 dark:border-white/15 dark:bg-white/5">
     ${langs
       .map(
         (l) =>
           `<a href="/${l}" hreflang="${l}" aria-current="${l === current ? 'true' : 'false'}"
-            class="rounded-full px-3 py-1.5 transition ${l === current ? 'bg-watcher-navy text-white dark:bg-watcher-cyan dark:text-watcher-deep' : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10'}">${LANG_META[l].label}</a>`
+            class="rounded-full px-3 py-1.5 transition-all duration-300 ${l === current ? 'bg-watcher-navy text-white dark:bg-watcher-cyan dark:text-watcher-deep font-black shadow-md' : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10'}">${LANG_META[l].label}</a>`
       )
       .join('')}
   </nav>`;
@@ -77,28 +77,28 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
 <link rel="stylesheet" href="/static/styles.css"/>
 <script>try{const t=localStorage.getItem('watcher-theme');if(t==='light'){document.documentElement.classList.remove('dark')}else{document.documentElement.classList.add('dark')}}catch(e){document.documentElement.classList.add('dark')}</script>
 </head>
-<body class="bg-white font-sans text-slate-900 antialiased dark:bg-watcher-deep dark:text-slate-100">
+<body class="bg-white font-sans text-slate-900 antialiased transition-colors duration-500 dark:bg-watcher-deep dark:text-slate-100">
 <a href="#main" class="sr-only">Skip</a>
 
-<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur dark:border-white/10 dark:bg-watcher-deep/80">
+<header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md transition-colors duration-500 dark:border-white/10 dark:bg-watcher-deep/80">
   <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
-    <a href="/${lang}" class="flex items-center gap-3">
+    <a href="/${lang}" class="flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]">
       ${logoSVG(40)}
       <span class="leading-tight"><span class="block text-lg font-extrabold tracking-tight">Watcher <span class="text-watcher-blue">IA</span></span>
       <span class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">AI agents that work</span></span>
     </a>
     <nav class="hidden items-center gap-6 text-sm font-semibold lg:flex">
-      <a class="hover:text-watcher-blue" href="/${lang}#services">${esc(dict.nav.services)}</a>
-      <a class="hover:text-watcher-blue" href="/${lang}#sovereign">${esc(dict.nav.sovereign)}</a>
-      <a class="hover:text-watcher-blue" href="/${lang}#claw">${esc(dict.nav.claw)}</a>
-      <a class="hover:text-watcher-blue" href="/${lang}#chat">${esc(dict.nav.chat)}</a>
-      <a class="hover:text-watcher-blue" href="/${lang}#research">${esc(dict.nav.research)}</a>
-      <a class="hover:text-watcher-blue" href="/${lang}#contact">${esc(dict.nav.contact)}</a>
+      <a class="transition-colors hover:text-watcher-blue" href="/${lang}#services">${esc(dict.nav.services)}</a>
+      <a class="transition-colors hover:text-watcher-blue" href="/${lang}#sovereign">${esc(dict.nav.sovereign)}</a>
+      <a class="transition-colors hover:text-watcher-blue" href="/${lang}#claw">${esc(dict.nav.claw)}</a>
+      <a class="transition-colors hover:text-watcher-blue" href="/${lang}#chat">${esc(dict.nav.chat)}</a>
+      <a class="transition-colors hover:text-watcher-blue" href="/${lang}#research">${esc(dict.nav.research)}</a>
+      <a class="transition-colors hover:text-watcher-blue" href="/${lang}#contact">${esc(dict.nav.contact)}</a>
     </nav>
     <div class="flex items-center gap-2">
       ${langSwitcher(lang)}
-      <button id="themeToggle" aria-label="Toggle theme" class="rounded-full border border-slate-200 p-2 text-sm dark:border-white/15">🌙</button>
-      <a href="/${lang}#register" class="hidden rounded-full bg-watcher-red px-4 py-2 text-sm font-bold text-white hover:opacity-90 sm:inline-block">${esc(dict.nav.register)}</a>
+      <button id="themeToggle" aria-label="Toggle theme" class="rounded-full border border-slate-200 p-2 text-sm transition-all duration-300 hover:scale-105 dark:border-white/15 dark:hover:bg-white/10">🌙</button>
+      <a href="/${lang}#register" class="hidden rounded-full bg-watcher-red px-4 py-2 text-sm font-bold text-white transition-all duration-300 hover:scale-105 sm:inline-block">${esc(dict.nav.register)}</a>
       <button id="menuBtn" class="rounded-lg border border-slate-200 p-2 lg:hidden dark:border-white/15">☰</button>
     </div>
   </div>
@@ -117,7 +117,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
 
 <main id="main">${content}</main>
 
-<footer id="contact" class="bg-watcher-navy text-slate-200 dark:bg-black">
+<footer id="contact" class="bg-watcher-navy text-slate-200 transition-colors duration-500 dark:bg-black">
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
     <div class="md:col-span-2">
       <div class="flex items-center gap-3">${logoSVG(44)}
@@ -126,25 +126,25 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
       </div>
       <p class="mt-4 max-w-md text-sm text-slate-300">${esc(dict.footer.tagline)}</p>
       <div class="mt-4 flex flex-wrap gap-2 text-xs font-bold">
-        <span class="rounded-full bg-white/10 px-3 py-1">AUTOMATE EVERYTHING</span>
-        <span class="rounded-full bg-white/10 px-3 py-1">SCALE WITHOUT LIMITS</span>
+        <span class="glass-panel rounded-full px-3 py-1 text-watcher-cyan">AUTOMATE EVERYTHING</span>
+        <span class="glass-panel rounded-full px-3 py-1 text-watcher-blue">SCALE WITHOUT LIMITS</span>
         <span class="rounded-full bg-watcher-red px-3 py-1 text-white">DEPLOY AI AGENTS</span>
       </div>
     </div>
     <div>
       <p class="text-sm font-bold uppercase tracking-widest text-slate-400">${esc(dict.footer.contact)}</p>
       <ul class="mt-3 space-y-2 text-sm">
-        <li><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.emailLabel)}</span><a class="hover:text-watcher-cyan" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
-        <li class="mt-2"><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.phoneLabel)}</span><a class="hover:text-watcher-cyan" href="tel:${CONTACT.phone.replace(/\s/g, '')}">${CONTACT.phone}</a></li>
+        <li><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.emailLabel)}</span><a class="transition-colors hover:text-watcher-cyan" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
+        <li class="mt-2"><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.phoneLabel)}</span><a class="transition-colors hover:text-watcher-cyan" href="tel:${CONTACT.phone.replace(/\s/g, '')}">${CONTACT.phone}</a></li>
         <li class="mt-2"><span class="text-slate-400 text-xs uppercase font-bold block">${esc(dict.footer.addressLabel)}</span><span class="text-slate-300">${esc(CONTACT.address)}</span></li>
       </ul>
     </div>
     <div>
       <p class="text-sm font-bold uppercase tracking-widest text-slate-400">Langues / Languages</p>
       <div class="mt-3 flex gap-2">
-        <a href="/en" class="rounded-lg bg-white/10 px-3 py-2 text-sm font-bold hover:bg-white/20">EN</a>
-        <a href="/fr" class="rounded-lg bg-white/10 px-3 py-2 text-sm font-bold hover:bg-white/20">FR</a>
-        <a href="/ar" class="rounded-lg bg-white/10 px-3 py-2 text-sm font-bold hover:bg-white/20">عربي</a>
+        <a href="/en" class="rounded-lg bg-white/10 px-3 py-2 text-sm font-bold transition-all hover:bg-white/20">EN</a>
+        <a href="/fr" class="rounded-lg bg-white/10 px-3 py-2 text-sm font-bold transition-all hover:bg-white/20">FR</a>
+        <a href="/ar" class="rounded-lg bg-white/10 px-3 py-2 text-sm font-bold transition-all hover:bg-white/20">عربي</a>
       </div>
       <p class="mt-4 text-xs text-slate-500">© ${new Date().getFullYear()} Watcher IA. ${esc(dict.footer.rights)}</p>
     </div>
@@ -157,25 +157,35 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
 export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
   const heroBadges = dict.hero.badges
     .map(
-      (b) => `<span class="rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-xs font-bold uppercase tracking-wide text-slate-200">
-        <span class="mr-2 inline-block h-2 w-2 rounded-full bg-watcher-red"></span>${esc(b)}</span>`
+      (b, idx) => `<div class="glass-panel rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02]">
+        <div class="flex items-center gap-3">
+          <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-watcher-blue/10 font-mono text-xs font-black text-watcher-cyan">0${idx + 1}</span>
+          <span class="text-xs font-extrabold uppercase tracking-wide text-slate-200">${esc(b)}</span>
+        </div>
+      </div>`
     )
     .join('');
 
   const serviceCards = dict.services.items
     .map(
-      (s, i) => `<article class="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5">
-      <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-watcher-blue">${esc(s.tag)}</p>
-      <h3 class="mt-2 text-xl font-extrabold">${esc(s.title)}</h3>
-      <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${esc(s.desc)}</p>
-      <a href="/${lang}#register" data-service="${s.key}" class="svc-cta mt-4 inline-flex items-center gap-2 text-sm font-bold text-watcher-red">${esc(dict.nav.register)} <span class="font-mono text-xs opacity-60">0${i + 1}</span></a>
+      (s, i) => `<article class="glass-panel group rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-xs font-black text-watcher-blue opacity-80">MODULE 0${i + 1}</span>
+        <span class="rounded-full bg-watcher-cyan/10 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-watcher-cyan">${esc(s.tag)}</span>
+      </div>
+      <h3 class="mt-4 text-xl font-black tracking-tight">${esc(s.title)}</h3>
+      <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${esc(s.desc)}</p>
+      <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-white/10 flex items-center justify-between">
+        <a href="/${lang}#register" data-service="${s.key}" class="svc-cta inline-flex items-center gap-2 text-sm font-extrabold text-watcher-red transition-all hover:translate-x-1">${esc(dict.nav.register)}</a>
+        <span class="font-mono text-xs font-bold text-slate-400">EXECUTE</span>
+      </div>
     </article>`
     )
     .join('');
 
   const clawStats = dict.claw.stats
     .map(
-      (st) => `<div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur">
+      (st) => `<div class="glass-panel rounded-2xl p-4 text-center transition-all duration-300 hover:scale-[1.02]">
       <p class="text-3xl font-black text-watcher-cyan">${esc(st.value)}</p>
       <p class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-300">${esc(st.label)}</p>
     </div>`
@@ -184,9 +194,10 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
 
   const governanceItems = dict.governance.items
     .map(
-      (g) => `<div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-      <h3 class="text-lg font-extrabold text-watcher-cyan">${esc(g.title)}</h3>
-      <p class="mt-2 text-sm text-slate-300">${esc(g.desc)}</p>
+      (g, idx) => `<div class="glass-panel rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02]">
+      <span class="font-mono text-xs font-black text-watcher-cyan">PRINCIPLE 0${idx + 1}</span>
+      <h3 class="mt-2 text-lg font-extrabold text-white">${esc(g.title)}</h3>
+      <p class="mt-2 text-sm text-slate-300 leading-relaxed">${esc(g.desc)}</p>
     </div>`
     )
     .join('');
@@ -196,11 +207,16 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
       ? `<p class="text-sm opacity-70">—</p>`
       : posts
           .map(
-            (p) => `<article class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/5">
-        <p class="text-xs font-semibold text-slate-500">${esc((p.published_at || '').slice(0, 10))} · ${esc(p.slug)}</p>
-        <h3 class="mt-2 text-lg font-extrabold leading-snug">${esc(p.title)}</h3>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
-        <a href="/${lang}/blog/${esc(p.slug)}" class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)}</a>
+            (p) => `<article class="glass-panel rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl">
+        <div class="flex items-center justify-between text-xs font-semibold text-slate-500">
+          <span>${esc((p.published_at || '').slice(0, 10))}</span>
+          <span class="font-mono text-watcher-blue">${esc(p.slug)}</span>
+        </div>
+        <h3 class="mt-3 text-lg font-black leading-snug tracking-tight">${esc(p.title)}</h3>
+        <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
+        <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-white/10">
+          <a href="/${lang}/blog/${esc(p.slug)}" class="inline-flex items-center text-sm font-bold text-watcher-blue transition-all hover:translate-x-1">${esc(dict.research.readMore)} →</a>
+        </div>
       </article>`
           )
           .join('');
@@ -210,52 +226,61 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
     .join('');
 
   return `
-<!-- HERO (dark with executive visual aesthetic) -->
-<section class="relative overflow-hidden bg-watcher-deep text-white">
-  <div class="hero-grid absolute inset-0"></div>
-  <div class="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-2 lg:pt-24 items-center">
+<!-- HERO SECTION (Living Tech Aesthetic with Animated Breathing Blobs) -->
+<section class="relative overflow-hidden bg-watcher-deep text-white py-24 lg:py-32">
+  <div class="hero-grid absolute inset-0 pointer-events-none opacity-60"></div>
+  <div class="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-watcher-blue/20 blur-3xl animate-breathe pointer-events-none"></div>
+  <div class="absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-watcher-red/15 blur-3xl animate-breathe-delayed pointer-events-none"></div>
+
+  <div class="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 items-center">
     <div>
-      <p class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-watcher-cyan">${esc(dict.hero.eyebrow)}</p>
-      <h1 class="mt-5 text-5xl font-black leading-[0.95] sm:text-6xl">${esc(dict.hero.titleA)}<br/><span class="text-watcher-red">${esc(dict.hero.titleB)}</span></h1>
-      <p class="mt-5 max-w-xl text-slate-300">${esc(dict.hero.subtitle)}</p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="/${lang}#register" class="rounded-full bg-watcher-red px-7 py-3.5 font-bold text-white shadow-lg shadow-red-900/40 hover:opacity-90">${esc(dict.hero.ctaPrimary)}</a>
-        <a href="/${lang}#services" class="rounded-full border border-white/20 px-7 py-3.5 font-bold hover:bg-white/10">${esc(dict.hero.ctaSecondary)}</a>
+      <div class="inline-flex items-center gap-2 rounded-full border border-watcher-cyan/30 bg-watcher-cyan/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-watcher-cyan backdrop-blur">
+        <span class="h-2 w-2 rounded-full bg-watcher-cyan animate-ping"></span>
+        ${esc(dict.hero.eyebrow)}
       </div>
-      <div class="mt-6 flex flex-wrap gap-x-6 gap-y-1 text-sm font-bold">
-        ${dict.strip.map((s) => `<span><span class="text-watcher-red">●</span> ${esc(s)}</span>`).join('')}
+      <h1 class="mt-6 text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
+        ${esc(dict.hero.titleA)}<br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-watcher-red via-watcher-magenta to-watcher-cyan">${esc(dict.hero.titleB)}</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">${esc(dict.hero.subtitle)}</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="/${lang}#register" class="rounded-full bg-watcher-red px-8 py-4 font-bold text-white shadow-xl shadow-red-900/50 transition-all duration-300 hover:scale-105 hover:bg-red-600">${esc(dict.hero.ctaPrimary)}</a>
+        <a href="/${lang}#services" class="glass-panel rounded-full px-8 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white/10">${esc(dict.hero.ctaSecondary)}</a>
+      </div>
+      <div class="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
+        ${dict.strip.map((s) => `<div class="font-mono text-xs font-bold uppercase tracking-wider text-watcher-cyan"><span class="text-watcher-red mr-1.5">/</span>${esc(s)}</div>`).join('')}
       </div>
     </div>
     <div class="relative">
-      <div class="grid grid-cols-2 gap-3 sm:grid-cols-2">${heroBadges}</div>
+      <div class="grid gap-4 sm:grid-cols-2">${heroBadges}</div>
     </div>
   </div>
 </section>
 
 <!-- WATCHER CLAW PLATFORM SHOWCASE -->
-<section id="claw" class="relative overflow-hidden bg-watcher-navy py-20 text-white">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+<section id="claw" class="relative overflow-hidden bg-watcher-navy py-24 text-white">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-watcher-blue/10 via-transparent to-transparent pointer-events-none"></div>
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
     <div class="grid gap-12 lg:grid-cols-2 items-center">
       <div>
         <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-cyan">${esc(dict.claw.eyebrow)}</p>
-        <h2 class="mt-2 font-serif text-4xl font-black leading-tight sm:text-5xl">${esc(dict.claw.title)}</h2>
+        <h2 class="mt-3 font-serif text-4xl font-black leading-tight tracking-tight sm:text-5xl">${esc(dict.claw.title)}</h2>
         <p class="mt-4 text-slate-300 leading-relaxed">${esc(dict.claw.subtitle)}</p>
         <div class="mt-8 grid grid-cols-3 gap-4">${clawStats}</div>
-        <div class="mt-8">
-          <a href="/${lang}#register" class="rounded-full bg-watcher-cyan px-7 py-3.5 font-bold text-watcher-deep hover:bg-white">${esc(dict.claw.cta)}</a>
+        <div class="mt-10">
+          <a href="/${lang}#register" class="inline-flex items-center rounded-full bg-watcher-cyan px-8 py-4 font-black text-watcher-deep transition-all duration-300 hover:scale-105 hover:bg-white shadow-lg shadow-cyan-900/30">${esc(dict.claw.cta)} →</a>
         </div>
       </div>
-      <div class="relative rounded-3xl border border-white/15 bg-white/5 p-4 shadow-2xl backdrop-blur">
-        <div class="absolute inset-0 bg-gradient-to-tr from-watcher-blue/20 to-transparent rounded-3xl pointer-events-none"></div>
+      <div class="glass-panel relative rounded-3xl p-6 shadow-2xl backdrop-blur-xl">
         <div class="rounded-2xl bg-watcher-deep/90 p-6 font-mono text-xs text-watcher-cyan border border-white/10">
           <p class="text-slate-400">// WATCHER CLAW KERNEL V4.2</p>
-          <p class="mt-2 text-white font-bold">&gt; Initializing multi-agent supervisor...</p>
-          <p class="mt-1 text-emerald-400">&gt; SOP loaded: Accounting &amp; Admin Workforces [OK]</p>
-          <p class="mt-1 text-watcher-cyan">&gt; RAG pipeline connected to private vector DB [SECURE]</p>
-          <p class="mt-1 text-watcher-blue">&gt; n8n webhook listener active on port 5678 [LISTENING]</p>
-          <div class="mt-4 rounded-xl bg-black/40 p-4 border border-white/10 text-slate-300">
-            <p class="text-xs uppercase tracking-widest text-watcher-red font-bold">Autonomous Loop</p>
-            <p class="mt-1">“Watcher Claw transitions manual execution into autonomous mastery for operational ROI.”</p>
+          <p class="mt-3 text-white font-bold">&gt; Initializing multi-agent supervisor...</p>
+          <p class="mt-1.5 text-emerald-400">&gt; SOP loaded: Accounting &amp; Admin Workforces [OK]</p>
+          <p class="mt-1.5 text-watcher-cyan">&gt; RAG pipeline connected to private vector DB [SECURE]</p>
+          <p class="mt-1.5 text-watcher-blue">&gt; n8n webhook listener active on port 5678 [LISTENING]</p>
+          <div class="mt-6 rounded-2xl bg-black/50 p-5 border border-white/10 text-slate-300">
+            <p class="text-[11px] uppercase tracking-widest text-watcher-red font-extrabold">Autonomous Loop</p>
+            <p class="mt-2 text-sm leading-relaxed text-white">“Watcher Claw transitions manual execution into autonomous mastery for operational ROI.”</p>
           </div>
         </div>
       </div>
@@ -263,103 +288,105 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
   </div>
 </section>
 
-<!-- SERVICES (light / dark hybrid) -->
-<section id="services" class="bg-slate-50 dark:bg-watcher-navy/40 py-20">
+<!-- SERVICES GRID (Refactored with Glassmorphism & Micro-Interactions) -->
+<section id="services" class="bg-slate-50 dark:bg-watcher-navy/40 py-24 transition-colors duration-500">
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
-    <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-blue">${esc(dict.services.eyebrow)}</p>
-    <h2 class="mt-2 max-w-2xl text-3xl font-black sm:text-4xl">${esc(dict.services.title)}</h2>
-    <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.services.subtitle)}</p>
-    <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">${serviceCards}</div>
+    <div class="max-w-3xl">
+      <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-blue">${esc(dict.services.eyebrow)}</p>
+      <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-5xl">${esc(dict.services.title)}</h2>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">${esc(dict.services.subtitle)}</p>
+    </div>
+    <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">${serviceCards}</div>
   </div>
 </section>
 
 <!-- AI SALES AGENT (TEXT-ONLY CHAT INTERFACE WITH SSE) -->
-<section id="chat" class="bg-white dark:bg-watcher-deep py-20 border-y border-slate-200 dark:border-white/10">
+<section id="chat" class="bg-white dark:bg-watcher-deep py-24 transition-colors duration-500 border-y border-slate-200 dark:border-white/10">
   <div class="mx-auto max-w-4xl px-4 sm:px-6">
     <div class="text-center">
       <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-cyan">${esc(dict.chatSection.eyebrow)}</p>
-      <h2 class="mt-2 text-3xl font-black sm:text-4xl">${esc(dict.chatSection.title)}</h2>
-      <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.chatSection.subtitle)}</p>
+      <h2 class="mt-3 text-3xl font-black tracking-tight sm:text-4xl">${esc(dict.chatSection.title)}</h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">${esc(dict.chatSection.subtitle)}</p>
     </div>
-    <div class="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-2xl dark:border-white/10 dark:bg-watcher-navy/50">
+    <div class="glass-panel mt-10 rounded-3xl p-6 shadow-2xl">
       <div id="chatHistory" class="space-y-4 max-h-[380px] overflow-y-auto p-4 font-mono text-xs">
-        <div class="rounded-2xl bg-white p-4 border border-slate-200 dark:bg-white/5 dark:border-white/10">
-          <p class="text-[10px] uppercase font-bold tracking-widest text-watcher-cyan">Watcher AI Sales Agent</p>
-          <p class="mt-1 text-slate-800 dark:text-slate-200">${esc(dict.chatSection.initial)}</p>
+        <div class="glass-panel rounded-2xl p-4">
+          <p class="text-[10px] uppercase font-extrabold tracking-widest text-watcher-cyan">Watcher AI Sales Agent</p>
+          <p class="mt-1.5 text-slate-800 dark:text-slate-200">${esc(dict.chatSection.initial)}</p>
         </div>
       </div>
       <form id="chatForm" data-lang="${lang}" class="mt-6 flex gap-3">
-        <input id="chatInput" required class="flex-1 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:outline-none dark:border-white/15 dark:bg-watcher-deep dark:text-white" placeholder="${esc(dict.chatSection.placeholder)}"/>
-        <button type="submit" class="rounded-xl bg-watcher-blue px-6 py-3 text-sm font-bold text-white hover:opacity-90">${esc(dict.chatSection.send)}</button>
+        <input id="chatInput" required class="flex-1 rounded-2xl border border-slate-300 bg-white px-5 py-3.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-watcher-cyan dark:border-white/15 dark:bg-watcher-deep dark:text-white" placeholder="${esc(dict.chatSection.placeholder)}"/>
+        <button type="submit" class="rounded-2xl bg-watcher-blue px-7 py-3.5 text-sm font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-sky-500">${esc(dict.chatSection.send)}</button>
       </form>
     </div>
   </div>
 </section>
 
 <!-- SOVEREIGN AI & GOVERNANCE -->
-<section id="sovereign" class="relative overflow-hidden bg-watcher-deep text-white py-20">
+<section id="sovereign" class="relative overflow-hidden bg-watcher-deep text-white py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <div class="grid gap-12 lg:grid-cols-2 items-center">
       <div>
         <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-cyan">${esc(dict.governance.eyebrow)}</p>
-        <h2 class="mt-2 font-serif text-4xl font-black leading-tight sm:text-5xl">${esc(dict.governance.title)}</h2>
+        <h2 class="mt-3 font-serif text-4xl font-black leading-tight sm:text-5xl">${esc(dict.governance.title)}</h2>
         <p class="mt-4 text-slate-300 leading-relaxed">${esc(dict.governance.subtitle)}</p>
         <div class="mt-8 grid gap-4 sm:grid-cols-2">${governanceItems}</div>
       </div>
-      <div class="rounded-3xl border border-white/15 bg-white/5 p-8 backdrop-blur">
-        <h3 class="text-xl font-extrabold text-white">${esc(dict.sovereign.title)}</h3>
-        <p class="mt-3 text-slate-300 text-sm leading-relaxed">${esc(dict.sovereign.desc)}</p>
-        <ul class="mt-6 space-y-3">
-          ${dict.sovereign.bullets.map((b) => `<li class="flex items-start gap-3"><span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-watcher-cyan"></span><span class="font-semibold text-sm">${esc(b)}</span></li>`).join('')}
+      <div class="glass-panel rounded-3xl p-8 shadow-2xl">
+        <h3 class="text-2xl font-black text-white">${esc(dict.sovereign.title)}</h3>
+        <p class="mt-4 text-slate-300 text-sm leading-relaxed">${esc(dict.sovereign.desc)}</p>
+        <ul class="mt-6 space-y-4">
+          ${dict.sovereign.bullets.map((b, idx) => `<li class="glass-panel flex items-center gap-4 rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02]"><span class="font-mono text-xs font-black text-watcher-cyan">0${idx + 1}</span><span class="font-bold text-sm text-white">${esc(b)}</span></li>`).join('')}
         </ul>
         <div class="mt-8">
-          <a href="/${lang}#register" class="inline-block rounded-full bg-watcher-red px-6 py-3 font-bold text-white shadow-lg hover:opacity-90">${esc(dict.sovereign.cta)}</a>
+          <a href="/${lang}#register" class="inline-block rounded-full bg-watcher-red px-8 py-4 font-bold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-red-600">${esc(dict.sovereign.cta)}</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- RESEARCH (hybrid light) -->
-<section id="research" class="bg-white dark:bg-watcher-deep py-20">
+<!-- RESEARCH & BLOG ARCHIVE -->
+<section id="research" class="bg-white dark:bg-watcher-deep py-24 transition-colors duration-500">
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-blue">${esc(dict.research.eyebrow)}</p>
     <div class="flex flex-wrap items-end justify-between gap-3">
-      <h2 class="text-3xl font-black sm:text-4xl">${esc(dict.research.title)}</h2>
-      <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue">/ ${esc(dict.nav.research)}</a>
+      <h2 class="text-3xl font-black tracking-tight sm:text-5xl">${esc(dict.research.title)}</h2>
+      <a href="/${lang}/blog" class="text-sm font-extrabold text-watcher-blue transition-colors hover:text-watcher-cyan">/ ${esc(dict.nav.research)}</a>
     </div>
-    <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.research.subtitle)}</p>
-    <div class="mt-10 grid gap-6 md:grid-cols-3">${postCards}</div>
+    <p class="mt-3 text-lg text-slate-600 dark:text-slate-300">${esc(dict.research.subtitle)}</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">${postCards}</div>
   </div>
 </section>
 
 <!-- REGISTER (light card on slate) -->
-<section id="register" class="bg-slate-50 dark:bg-black/40 py-20">
+<section id="register" class="bg-slate-50 dark:bg-black/40 py-24 transition-colors duration-500">
   <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 items-center">
     <div>
-      <h2 class="text-3xl font-black sm:text-4xl">${esc(dict.register.title)}</h2>
-      <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.register.subtitle)}</p>
-      <div class="mt-8 space-y-3 text-sm">
-        <div><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.emailLabel)}</span><a class="font-bold text-watcher-blue" href="mailto:${CONTACT.email}">${CONTACT.email}</a></div>
-        <div class="mt-3"><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.phoneLabel)}</span><a class="font-bold" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></div>
-        <div class="mt-3"><span class="text-xs font-bold uppercase tracking-widest text-slate-400 block">${esc(dict.footer.addressLabel)}</span><span class="font-semibold">${esc(CONTACT.address)}</span></div>
+      <h2 class="text-3xl font-black tracking-tight sm:text-5xl">${esc(dict.register.title)}</h2>
+      <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">${esc(dict.register.subtitle)}</p>
+      <div class="glass-panel mt-8 rounded-3xl p-8 space-y-4 text-sm">
+        <div><span class="text-xs font-black uppercase tracking-widest text-watcher-blue block">${esc(dict.footer.emailLabel)}</span><a class="font-bold text-slate-900 dark:text-white" href="mailto:${CONTACT.email}">${CONTACT.email}</a></div>
+        <div class="pt-3 border-t border-slate-200/60 dark:border-white/15"><span class="text-xs font-black uppercase tracking-widest text-watcher-blue block">${esc(dict.footer.phoneLabel)}</span><a class="font-bold text-slate-900 dark:text-white" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></div>
+        <div class="pt-3 border-t border-slate-200/60 dark:border-white/15"><span class="text-xs font-black uppercase tracking-widest text-watcher-blue block">${esc(dict.footer.addressLabel)}</span><span class="font-bold text-slate-900 dark:text-white">${esc(CONTACT.address)}</span></div>
       </div>
     </div>
-    <form id="regForm" data-lang="${lang}" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl dark:border-white/10 dark:bg-white/5">
+    <form id="regForm" data-lang="${lang}" class="glass-panel rounded-3xl p-8 shadow-2xl">
       <div class="grid gap-4 sm:grid-cols-2">
         <label class="block"><span class="text-sm font-bold">${esc(dict.register.name)} *</span>
-          <input name="name" required minlength="2" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 dark:border-white/15" placeholder="John Doe"/></label>
+          <input name="name" required minlength="2" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white/50 px-4 py-3.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-watcher-cyan dark:border-white/15 dark:bg-watcher-deep dark:text-white" placeholder="John Doe"/></label>
         <label class="block"><span class="text-sm font-bold">${esc(dict.register.company)} <span class="font-normal opacity-60">(${esc(dict.register.optional)})</span></span>
-          <input name="company" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 dark:border-white/15" placeholder="Acme SARL"/></label>
+          <input name="company" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white/50 px-4 py-3.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-watcher-cyan dark:border-white/15 dark:bg-watcher-deep dark:text-white" placeholder="Acme SARL"/></label>
       </div>
       <label class="mt-4 block"><span class="text-sm font-bold">${esc(dict.register.email)} *</span>
-        <input name="email" type="email" required class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 dark:border-white/15" placeholder="you@company.com"/></label>
+        <input name="email" type="email" required class="mt-2 w-full rounded-2xl border border-slate-300 bg-white/50 px-4 py-3.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-watcher-cyan dark:border-white/15 dark:bg-watcher-deep dark:text-white" placeholder="you@company.com"/></label>
       <label class="mt-4 block"><span class="text-sm font-bold">${esc(dict.register.service)} *</span>
-        <select name="service_request" required class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 dark:border-white/15 dark:bg-watcher-deep dark:text-white">${serviceOptions}</select></label>
+        <select name="service_request" required class="mt-2 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-watcher-cyan dark:border-white/15 dark:bg-watcher-deep dark:text-white">${serviceOptions}</select></label>
       <label class="mt-4 block"><span class="text-sm font-bold">${esc(dict.register.message)}</span>
-        <textarea name="message" rows="4" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 dark:border-white/15"></textarea></label>
-      <button class="mt-6 w-full rounded-full bg-watcher-navy px-6 py-4 font-bold text-white hover:opacity-90 dark:bg-watcher-blue">${esc(dict.register.submit)}</button>
-      <p id="regMsg" role="status" class="mt-4 hidden rounded-xl p-3 text-sm font-semibold"></p>
+        <textarea name="message" rows="4" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white/50 px-4 py-3.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-watcher-cyan dark:border-white/15 dark:bg-watcher-deep dark:text-white"></textarea></label>
+      <button class="mt-8 w-full rounded-full bg-watcher-navy px-6 py-4 font-extrabold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-slate-800 dark:bg-watcher-blue dark:hover:bg-sky-500">${esc(dict.register.submit)}</button>
+      <p id="regMsg" role="status" class="mt-4 hidden rounded-2xl p-4 text-sm font-bold"></p>
     </form>
   </div>
 </section>`;
@@ -368,27 +395,29 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
 export function blogIndexPage(lang: Lang, dict: Dict, posts: PostRow[]): string {
   const cards = posts
     .map(
-      (p) => `<a href="/${lang}/blog/${esc(p.slug)}" class="block rounded-2xl border border-slate-200 bg-white p-6 hover:shadow-lg dark:border-white/10 dark:bg-white/5">
-      <p class="text-xs text-slate-500">${esc((p.published_at || '').slice(0, 10))}</p>
-      <h3 class="mt-2 text-xl font-extrabold">${esc(p.title)}</h3>
-      <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
-      <span class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)}</span></a>`
+      (p) => `<a href="/${lang}/blog/${esc(p.slug)}" class="glass-panel block rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl">
+      <p class="text-xs font-mono text-watcher-blue">${esc((p.published_at || '').slice(0, 10))}</p>
+      <h3 class="mt-3 text-xl font-black tracking-tight">${esc(p.title)}</h3>
+      <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
+      <span class="mt-6 inline-block text-sm font-extrabold text-watcher-blue transition-transform hover:translate-x-1">${esc(dict.research.readMore)} →</span></a>`
     )
     .join('');
-  return `<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-    <h1 class="text-4xl font-black">${esc(dict.research.title)}</h1>
-    <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.research.subtitle)}</p>
-    <div class="mt-10 grid gap-6 md:grid-cols-3">${cards || '<p>—</p>'}</div>
+  return `<section class="mx-auto max-w-7xl px-4 py-24 sm:px-6">
+    <h1 class="text-4xl font-black tracking-tight sm:text-5xl">${esc(dict.research.title)}</h1>
+    <p class="mt-3 text-lg text-slate-600 dark:text-slate-300">${esc(dict.research.subtitle)}</p>
+    <div class="mt-12 grid gap-6 md:grid-cols-3">${cards || '<p>—</p>'}</div>
   </section>`;
 }
 
 export function blogPostPage(lang: Lang, dict: Dict, post: PostRow & { body: string }): string {
-  return `<article class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-    <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue">← /${lang}/blog</a>
-    <p class="mt-4 text-xs font-bold uppercase tracking-widest text-slate-500">${esc((post.published_at || '').slice(0, 10))}</p>
-    <h1 class="mt-2 text-4xl font-black leading-tight">${esc(post.title)}</h1>
-    <p class="mt-3 text-lg text-slate-600 dark:text-slate-300">${esc(post.excerpt)}</p>
-    <div class="prose mt-8 dark:prose-invert"><p>${esc(post.body)}</p></div>
-    <a href="/${lang}#register" class="mt-10 inline-block rounded-full bg-watcher-red px-7 py-3.5 font-bold text-white">${esc(dict.nav.register)}</a>
+  return `<article class="mx-auto max-w-3xl px-4 py-24 sm:px-6">
+    <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue transition-colors hover:text-watcher-cyan">← /${lang}/blog</a>
+    <p class="mt-6 text-xs font-mono font-bold text-watcher-blue uppercase tracking-widest">${esc((post.published_at || '').slice(0, 10))}</p>
+    <h1 class="mt-3 text-4xl font-black tracking-tight leading-tight sm:text-5xl">${esc(post.title)}</h1>
+    <p class="mt-4 text-xl leading-relaxed text-slate-600 dark:text-slate-300 font-semibold">${esc(post.excerpt)}</p>
+    <div class="glass-panel mt-10 rounded-3xl p-8 leading-relaxed text-slate-700 dark:text-slate-200">${esc(post.body)}</div>
+    <div class="mt-12">
+      <a href="/${lang}#register" class="inline-block rounded-full bg-watcher-red px-8 py-4 font-bold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-red-600">${esc(dict.nav.register)}</a>
+    </div>
   </article>`;
 }

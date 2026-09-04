@@ -6,7 +6,7 @@ var __publicField = (obj, key, value) => {
   return value;
 };
 
-// .wrangler/tmp/bundle-ajLl0B/strip-cf-connecting-ip-header.js
+// .wrangler/tmp/bundle-BrEF72/strip-cf-connecting-ip-header.js
 function stripCfConnectingIPHeader(input, init) {
   const request = new Request(input, init);
   request.headers.delete("CF-Connecting-IP");
@@ -2970,7 +2970,7 @@ var LANG_META = {
 };
 var dicts = {
   en: {
-    nav: { services: "Services", sovereign: "Sovereign AI", research: "Research", contact: "Contact", register: "Get started" },
+    nav: { services: "Services", sovereign: "Sovereign AI", claw: "Watcher Claw", research: "Research", contact: "Contact", register: "Get started" },
     hero: {
       eyebrow: "Watcher IA \xB7 AI agents that work",
       titleA: "BUILD YOUR BUSINESS WITH",
@@ -2981,6 +2981,17 @@ var dicts = {
       badges: ["Enterprise Automation", "Multi-Agent Systems", "AI Workflows", "RAG Architecture", "MCP Integration", "AI Assistants", "Business Automation", "Custom AI Solutions"]
     },
     strip: ["Automate everything", "Scale without limits", "Deploy AI agents. Grow faster."],
+    claw: {
+      eyebrow: "Watcher Claw Platform",
+      title: "An AI Agent That Learns & Executes",
+      subtitle: "Watcher Claw transitions manual execution into autonomous mastery for operational ROI. Deploy agents that observe your workflows, learn SOPs, and execute with precision guardrails.",
+      stats: [
+        { label: "Agent Efficiency", value: "99.8%" },
+        { label: "Tasks Automated", value: "1,245,000+" },
+        { label: "Connectivity Status", value: "Secure (12 Nodes)" }
+      ],
+      cta: "Experience Mastery"
+    },
     services: {
       eyebrow: "What we do",
       title: "Bespoke agentic solutions, wired into your operations",
@@ -2998,6 +3009,17 @@ var dicts = {
       desc: "Watcher Claw transitions manual execution into autonomous mastery for operational ROI \u2014 inside your private cloud.",
       bullets: ["ODS / Osmantic private stack", "RAG over your internal knowledge", "MCP integrations to your ERP / CRM", "Audit trails & human-in-the-loop guardrails"],
       cta: "Talk to an architect"
+    },
+    governance: {
+      eyebrow: "Digital Sovereignty & Ethics",
+      title: "Artificial Intelligence at the Service of Humanity",
+      subtitle: "Building a trustworthy future with clear rules and absolute transparency.",
+      items: [
+        { title: "Governance", desc: "Clear rules and assumed responsibilities across all autonomous workflows." },
+        { title: "Transparency", desc: "A system that explains every decision, never guessing." },
+        { title: "Responsibility", desc: "Humans remain at the core of all strategic decisions." },
+        { title: "Responsible Design", desc: "Technology dedicated to human dignity and operational excellence." }
+      ]
     },
     research: { eyebrow: "Research & notes", title: "From the lab", subtitle: "Operational playbooks on agentic automation.", readMore: "Read note" },
     register: {
@@ -3023,7 +3045,7 @@ var dicts = {
     footer: { tagline: "AI agents that work. Automate everything. Scale without limits.", rights: "All rights reserved.", contact: "Contact" }
   },
   fr: {
-    nav: { services: "Services", sovereign: "IA souveraine", research: "Recherche", contact: "Contact", register: "D\xE9marrer" },
+    nav: { services: "Services", sovereign: "IA souveraine", claw: "Watcher Claw", research: "Recherche", contact: "Contact", register: "D\xE9marrer" },
     hero: {
       eyebrow: "Watcher IA \xB7 des agents IA qui travaillent",
       titleA: "D\xC9VELOPPEZ VOTRE ENTREPRISE AVEC",
@@ -3034,6 +3056,17 @@ var dicts = {
       badges: ["Automatisation entreprise", "Syst\xE8mes multi-agents", "Workflows IA", "Architecture RAG", "Int\xE9gration MCP", "Assistants IA", "Automatisation business", "Solutions IA sur mesure"]
     },
     strip: ["Automatisez tout", "Scalez sans limites", "D\xE9ployez des agents IA. Grandissez plus vite."],
+    claw: {
+      eyebrow: "Plateforme Watcher Claw",
+      title: "Un agent IA qui apprend et s'ex\xE9cute",
+      subtitle: "Watcher Claw fait passer l'ex\xE9cution manuelle \xE0 la ma\xEEtrise autonome pour un ROI op\xE9rationnel. D\xE9ployez des agents qui observent vos flux, apprennent vos SOP et ex\xE9cutent avec pr\xE9cision.",
+      stats: [
+        { label: "Efficacit\xE9 de l'agent", value: "99.8%" },
+        { label: "T\xE2ches automatis\xE9es", value: "1 245 000+" },
+        { label: "Statut de connectivit\xE9", value: "S\xE9curis\xE9 (12 n\u0153uds)" }
+      ],
+      cta: "Exp\xE9rimenter la ma\xEEtrise"
+    },
     services: {
       eyebrow: "Ce que nous faisons",
       title: "Des solutions agentiques sur mesure, c\xE2bl\xE9es \xE0 vos op\xE9rations",
@@ -3051,6 +3084,17 @@ var dicts = {
       desc: "Watcher Claw fait passer l\u2019ex\xE9cution manuelle \xE0 la ma\xEEtrise autonome pour un ROI op\xE9rationnel \u2014 dans votre cloud priv\xE9.",
       bullets: ["Stack priv\xE9e ODS / Osmantic", "RAG sur votre connaissance interne", "Int\xE9grations MCP \xE0 votre ERP / CRM", "Pistes d\u2019audit & garde-fous humains"],
       cta: "Parler \xE0 un architecte"
+    },
+    governance: {
+      eyebrow: "Souverainet\xE9 Num\xE9rique & IA",
+      title: "L'Intelligence Artificielle au Service de l'Humain",
+      subtitle: "Construisons un avenir de confiance, ensemble, avec des r\xE8gles claires et une transparence absolue.",
+      items: [
+        { title: "Gouvernance", desc: "Des r\xE8gles claires, des responsabilit\xE9s assum\xE9es \xE0 chaque \xE9tape." },
+        { title: "Transparence", desc: "Un syst\xE8me qui explique, pas qui devine." },
+        { title: "Responsabilit\xE9", desc: "L\u2019humain reste au c\u0153ur de toutes les d\xE9cisions strat\xE9giques." },
+        { title: "Conception Responsable", desc: "La technologie au service de la dignit\xE9 humaine." }
+      ]
     },
     research: { eyebrow: "Recherche & notes", title: "Depuis le labo", subtitle: "Playbooks op\xE9rationnels sur l\u2019automatisation agentique.", readMore: "Lire la note" },
     register: {
@@ -3076,7 +3120,7 @@ var dicts = {
     footer: { tagline: "Des agents IA qui travaillent. Automatisez tout. Scalez sans limites.", rights: "Tous droits r\xE9serv\xE9s.", contact: "Contact" }
   },
   ar: {
-    nav: { services: "\u0627\u0644\u062E\u062F\u0645\u0627\u062A", sovereign: "\u0630\u0643\u0627\u0621 \u0633\u064A\u0627\u062F\u064A", research: "\u0627\u0644\u0623\u0628\u062D\u0627\u062B", contact: "\u0627\u062A\u0635\u0644 \u0628\u0646\u0627", register: "\u0627\u0628\u062F\u0623 \u0627\u0644\u0622\u0646" },
+    nav: { services: "\u0627\u0644\u062E\u062F\u0645\u0627\u062A", sovereign: "\u0630\u0643\u0627\u0621 \u0633\u064A\u0627\u062F\u064A", claw: "\u0648\u0627\u062A\u0634\u0631 \u0643\u0644\u0648", research: "\u0627\u0644\u0623\u0628\u062D\u0627\u062B", contact: "\u0627\u062A\u0635\u0644 \u0628\u0646\u0627", register: "\u0627\u0628\u062F\u0623 \u0627\u0644\u0622\u0646" },
     hero: {
       eyebrow: "\u0648\u0627\u062A\u0634\u0631 IA \xB7 \u0648\u0643\u0644\u0627\u0621 \u0630\u0643\u0627\u0621 \u064A\u0639\u0645\u0644\u0648\u0646 \u0641\u0639\u0644\u0627\u064B",
       titleA: "\u0637\u0648\u0651\u0631 \u0623\u0639\u0645\u0627\u0644\u0643 \u0645\u0639",
@@ -3087,12 +3131,23 @@ var dicts = {
       badges: ["\u0623\u062A\u0645\u062A\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u0627\u062A", "\u0623\u0646\u0638\u0645\u0629 \u0645\u062A\u0639\u062F\u062F\u0629 \u0627\u0644\u0648\u0643\u0644\u0627\u0621", "\u0633\u064A\u0631 \u0639\u0645\u0644 \u0630\u0643\u064A", "\u0628\u0646\u064A\u0629 RAG", "\u062A\u0643\u0627\u0645\u0644 MCP", "\u0645\u0633\u0627\u0639\u062F\u0627\u062A \u0630\u0643\u064A\u0629", "\u0623\u062A\u0645\u062A\u0629 \u0627\u0644\u0623\u0639\u0645\u0627\u0644", "\u062D\u0644\u0648\u0644 \u0630\u0643\u0627\u0621 \u0645\u062E\u0635\u0635\u0629"]
     },
     strip: ["\u0623\u062A\u0645\u062A \u0643\u0644 \u0634\u064A\u0621", "\u062A\u0648\u0633\u0651\u0639 \u0628\u0644\u0627 \u062D\u062F\u0648\u062F", "\u0627\u0646\u0634\u0631 \u0648\u0643\u0644\u0627\u0621 \u0627\u0644\u0630\u0643\u0627\u0621. \u0627\u0646\u0645\u064F \u0623\u0633\u0631\u0639."],
+    claw: {
+      eyebrow: "\u0645\u0646\u0635\u0629 Watcher Claw",
+      title: "\u0648\u0643\u064A\u0644 \u0630\u0643\u0627\u0621 \u0627\u0635\u0637\u0646\u0627\u0639\u064A \u064A\u062A\u0639\u0644\u0645 \u0648\u064A\u0646\u0641\u0630",
+      subtitle: "\u064A\u062D\u0648\u0651\u0644 Watcher Claw \u0627\u0644\u062A\u0646\u0641\u064A\u0630 \u0627\u0644\u064A\u062F\u0648\u064A \u0625\u0644\u0649 \u0625\u062A\u0642\u0627\u0646 \u0630\u0627\u062A\u064A \u0645\u0646 \u0623\u062C\u0644 \u0639\u0627\u0626\u062F \u062A\u0634\u063A\u064A\u0644\u064A. \u0627\u0646\u0634\u0631 \u0648\u0643\u0644\u0627\u0621 \u064A\u0631\u0627\u0642\u0628\u0648\u0646 \u062A\u062F\u0641\u0642\u0627\u062A \u0639\u0645\u0644\u0643\u060C \u064A\u062A\u0639\u0644\u0645\u0648\u0646 \u0627\u0644\u0625\u062C\u0631\u0627\u0621\u0627\u062A\u060C \u0648\u064A\u0646\u0641\u0630\u0648\u0646 \u0628\u062F\u0642\u0629 \u0639\u0627\u0644\u064A\u0629.",
+      stats: [
+        { label: "\u0643\u0641\u0627\u0621\u0629 \u0627\u0644\u0648\u0643\u064A\u0644", value: "99.8%" },
+        { label: "\u0627\u0644\u0645\u0647\u0627\u0645 \u0627\u0644\u0645\u0624\u062A\u0645\u062A\u0629", value: "+1,245,000" },
+        { label: "\u062D\u0627\u0644\u0629 \u0627\u0644\u0627\u062A\u0635\u0627\u0644", value: "\u0622\u0645\u0646 (12 \u0639\u0642\u062F\u0629)" }
+      ],
+      cta: "\u0627\u062E\u062A\u0628\u0631 \u0627\u0644\u0625\u062A\u0642\u0627\u0646 \u0627\u0644\u0630\u0627\u062A\u064A"
+    },
     services: {
       eyebrow: "\u0645\u0627\u0630\u0627 \u0646\u0642\u062F\u0645",
       title: "\u062D\u0644\u0648\u0644 \u0648\u0643\u064A\u0644\u064A\u0629 \u0645\u0635\u0645\u0645\u0629 \u062E\u0635\u064A\u0635\u0627\u064B\u060C \u0645\u062F\u0645\u062C\u0629 \u0641\u064A \u0639\u0645\u0644\u064A\u0627\u062A\u0643",
       subtitle: "\u0623\u062A\u0645\u062A\u0629 \u0642\u0627\u0626\u0645\u0629 \u0639\u0644\u0649 \u0627\u0644\u0646\u062A\u0627\u0626\u062C \u2014 \u062A\u064F\u0642\u0627\u0633 \u0628\u0627\u0644\u0639\u0627\u0626\u062F \u0644\u0627 \u0628\u0627\u0644\u0639\u0631\u0648\u0636.",
       items: [
-        { key: "agentic_solutions", title: "\u062D\u0644\u0648\u0644 \u0648\u0643\u064A\u0644\u064A\u0629 \u0645\u062E\u0635\u0635\u0629", desc: "\u0642\u0648\u0649 \u0639\u0627\u0645\u0644\u0629 \u0630\u0627\u062A\u064A\u0629 \u0644\u0641\u0631\u0642 \u0627\u0644\u0625\u062F\u0627\u0631\u0629 \u0648\u0627\u0644\u0645\u062D\u0627\u0633\u0628\u0629 \u0648\u0627\u0644\u062A\u0637\u0648\u064A\u0631. \u0648\u0643\u0644\u0627\u0621 \u064A\u062A\u0639\u0644\u0645\u0648\u0646 \u0625\u062C\u0631\u0627\u0621\u0627\u062A\u0643 \u0648\u064A\u0646\u0641\u0630\u0648\u0646\u0647\u0627.", tag: "\u0625\u062F\u0627\u0631\u0629 \xB7 \u0645\u062D\u0627\u0633\u0628\u0629 \xB7 \u062A\u0637\u0648\u064A\u0631" },
+        { key: "agentic_solutions", title: "\u062D\u0644\u0648\u0644 \u0648\u0643\u064A\u0644\u064A\u0629 \u0645\u062E\u0635\u0635\u0629", desc: "\u0642\u0648\u0649 \u0639\u0627\u0645\u0644\u0629 \u0630\u0627\u062A\u064A\u0629 \u0644\u0641\u0631\u0642 \u0627\u0644\u0625\u062F\u0627\u0631\u0629 \u0648\u0627\u0644\u0645\u062D\u0627\u0633\u0628\u0629 \u0648\u0627\u0644\u062A\u0637\u0648\u064A\u0631. \u0648\u0643\u0644\u0627\u0621 \u064A\u062A\u0639\u0644\u0645\u0648\u0646 \u0625\u062C\u0631\u0627\u0621\u0627\u062A\u0643 \u0648\u064A\u0646\u0641\u0630\u0648\u0646.", tag: "\u0625\u062F\u0627\u0631\u0629 \xB7 \u0645\u062D\u0627\u0633\u0628\u0629 \xB7 \u062A\u0637\u0648\u064A\u0631" },
         { key: "n8n_automation", title: "\u0623\u062A\u0645\u062A\u0629 n8n \u0648\u0627\u0644\u062A\u062F\u0631\u064A\u0628", desc: "\u062A\u0646\u0633\u064A\u0642 \u062E\u0637\u0648\u0637 \u0623\u0646\u0627\u0628\u064A\u0628 \u0628\u0645\u0633\u062A\u0648\u0649 \u0627\u0644\u0645\u0624\u0633\u0633\u0627\u062A \u0639\u0628\u0631 n8n. \u0646\u0628\u0646\u064A \u0648\u0646\u062D\u0635\u0651\u0646 \u0648\u0646\u062F\u0631\u0651\u0628 \u0641\u0631\u064A\u0642\u0643 \u0639\u0644\u0649 \u0627\u0644\u062A\u0645\u0644\u0643.", tag: "n8n \xB7 \u062E\u0637\u0648\u0637 \xB7 \u062A\u062F\u0631\u064A\u0628" },
         { key: "private_ai_server", title: "\u0646\u0634\u0631 \u062E\u0627\u062F\u0645 \u0630\u0643\u0627\u0621 \u062E\u0627\u0635 \u0648\u0622\u0645\u0646", desc: "\u0646\u0634\u0631 \u0645\u062D\u0644\u064A / \u0633\u064A\u0627\u062F\u064A \u0645\u062F\u0639\u0648\u0645 \u0628\u062D\u0632\u0645\u0629 ODS / Osmantic. \u0628\u064A\u0627\u0646\u0627\u062A\u0643 \u0644\u0627 \u062A\u063A\u0627\u062F\u0631 \u0645\u062D\u064A\u0637\u0643.", tag: "\u0645\u062D\u0644\u064A \xB7 \u0633\u064A\u0627\u062F\u064A \xB7 ODS" },
         { key: "consulting_governance", title: "\u0627\u0644\u0627\u0633\u062A\u0634\u0627\u0631\u0627\u062A \u0648\u0627\u0644\u062D\u0648\u0643\u0645\u0629 \u0627\u0644\u0631\u0642\u0645\u064A\u0629", desc: "\u0627\u0633\u062A\u0634\u0627\u0631\u0627\u062A \u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \u0641\u064A \u0627\u0644\u0630\u0643\u0627\u0621 \u0648\u0623\u0637\u0631 \u062D\u0648\u0643\u0645\u0629 \u0648\u062E\u0627\u0631\u0637\u0629 \u0637\u0631\u064A\u0642 \u0644\u0644\u062C\u0627\u0647\u0632\u064A\u0629 \u0644\u0639\u0635\u0631 AGI.", tag: "\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629 \xB7 \u062D\u0648\u0643\u0645\u0629" }
@@ -3104,6 +3159,17 @@ var dicts = {
       desc: "\u064A\u0646\u0642\u0644 Watcher Claw \u0627\u0644\u062A\u0646\u0641\u064A\u0630 \u0627\u0644\u064A\u062F\u0648\u064A \u0625\u0644\u0649 \u0625\u062A\u0642\u0627\u0646 \u0630\u0627\u062A\u064A \u0645\u0646 \u0623\u062C\u0644 \u0639\u0627\u0626\u062F \u062A\u0634\u063A\u064A\u0644\u064A \u2014 \u062F\u0627\u062E\u0644 \u0633\u062D\u0627\u0628\u062A\u0643 \u0627\u0644\u062E\u0627\u0635\u0629.",
       bullets: ["\u062D\u0632\u0645\u0629 ODS / Osmantic \u0627\u0644\u062E\u0627\u0635\u0629", "\u0628\u062D\u062B RAG \u0641\u0648\u0642 \u0645\u0639\u0631\u0641\u062A\u0643 \u0627\u0644\u062F\u0627\u062E\u0644\u064A\u0629", "\u062A\u0643\u0627\u0645\u0644\u0627\u062A MCP \u0645\u0639 ERP / CRM", "\u0633\u062C\u0644\u0627\u062A \u062A\u062F\u0642\u064A\u0642 \u0648\u0636\u0648\u0627\u0628\u0637 \u0628\u0634\u0631\u064A\u0629"],
       cta: "\u062A\u062D\u062F\u062B \u0645\u0639 \u0645\u0647\u0646\u062F\u0633"
+    },
+    governance: {
+      eyebrow: "\u0627\u0644\u0633\u064A\u0627\u062F\u0629 \u0627\u0644\u0631\u0642\u0645\u064A\u0629 \u0648\u0627\u0644\u0627\u062E\u0644\u0627\u0642\u064A\u0627\u062A",
+      title: "\u0627\u0644\u0630\u0643\u0627\u0621 \u0627\u0644\u0627\u0635\u0637\u0646\u0627\u0639\u064A \u0641\u064A \u062E\u062F\u0645\u0629 \u0627\u0644\u0625\u0646\u0633\u0627\u0646\u064A\u0629",
+      subtitle: "\u0646\u0628\u0646\u064A \u0645\u0633\u062A\u0642\u0628\u0644\u0627\u064B \u0645\u0648\u062B\u0648\u0642\u0627\u064B \u0645\u0639 \u0642\u0648\u0627\u0639\u062F \u0648\u0627\u0636\u062D\u0629 \u0648\u0634\u0641\u0627\u0641\u064A\u0629 \u0645\u0637\u0644\u0642\u0640\u0629.",
+      items: [
+        { title: "\u0627\u0644\u062D\u0648\u0643\u0645\u0629", desc: "\u0642\u0648\u0627\u0639\u062F \u0648\u0627\u0636\u062D\u0629 \u0648\u0645\u0633\u0624\u0648\u0644\u064A\u0627\u062A \u0645\u062D\u062F\u062F\u0629 \u0641\u064A \u0643\u0627\u0641\u0629 \u0627\u0644\u0639\u0645\u0644\u064A\u0627\u062A." },
+        { title: "\u0627\u0644\u0634\u0641\u0627\u0641\u064A\u0629", desc: "\u0646\u0638\u0627\u0645 \u064A\u0634\u0631\u062D \u0643\u0644 \u0642\u0631\u0627\u0631\u060C \u0648\u0644\u0627 \u064A\u062E\u0645\u0646 \u0623\u0628\u062F\u0627\u064B." },
+        { title: "\u0627\u0644\u0645\u0633\u0624\u0648\u0644\u064A\u0629", desc: "\u064A\u0628\u0642\u0649 \u0627\u0644\u0625\u0646\u0633\u0627\u0646 \u0641\u064A \u0642\u0644\u0628 \u0643\u0627\u0641\u0629 \u0627\u0644\u0642\u0631\u0627\u0631\u0627\u062A \u0627\u0644\u0627\u0633\u062A\u0631\u0627\u062A\u064A\u062C\u064A\u0629." },
+        { title: "\u0627\u0644\u062A\u0635\u0645\u064A\u0645 \u0627\u0644\u0645\u0633\u0624\u0648\u0644", desc: "\u062A\u0643\u0646\u0648\u0644\u0648\u062C\u064A\u0627 \u0645\u0633\u062E\u0631\u0629 \u0644\u0643\u0631\u0627\u0645\u0629 \u0627\u0644\u0625\u0646\u0633\u0627\u0646 \u0648\u0627\u0644\u062A\u0645\u064A\u0632 \u0627\u0644\u062A\u0634\u063A\u064A\u0644\u064A." }
+      ]
     },
     research: { eyebrow: "\u0623\u0628\u062D\u0627\u062B \u0648\u0645\u062F\u0648\u0646\u0627\u062A", title: "\u0645\u0646 \u0627\u0644\u0645\u062E\u062A\u0628\u0631", subtitle: "\u0623\u062F\u0644\u0629 \u062A\u0634\u063A\u064A\u0644\u064A\u0629 \u062D\u0648\u0644 \u0627\u0644\u0623\u062A\u0645\u062A\u0629 \u0627\u0644\u0648\u0643\u064A\u0644\u064A\u0629.", readMore: "\u0627\u0642\u0631\u0623 \u0627\u0644\u0645\u0642\u0627\u0644" },
     register: {
@@ -3122,7 +3188,7 @@ var dicts = {
         { value: "other", label: "\u0623\u062E\u0631\u0649" }
       ],
       submit: "\u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u0637\u0644\u0628",
-      success: "\u062A\u0645 \u0627\u0633\u062A\u0644\u0627\u0645 \u0627\u0644\u0637\u0644\u0628. \u0633\u064A\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0643 \u0641\u0631\u064A\u0642\u0646\u0627 \u0642\u0631\u064A\u0628\u0627\u064B.",
+      success: "\u062A\u0645 \u0627\u0633\u062A\u0644\u0627\u0633\u062A\u0644\u0627\u0645 \u0627\u0644\u0637\u0644\u0628. \u0633\u064A\u062A\u0648\u0627\u0635\u0644 \u0645\u0639\u0643 \u0641\u0631\u064A\u0642\u0646\u0627 \u0642\u0631\u064A\u0628\u0627\u064B.",
       error: "\u0641\u0634\u0644 \u0627\u0644\u0625\u0631\u0633\u0627\u0644. \u062A\u062D\u0642\u0642 \u0645\u0646 \u0627\u0644\u062D\u0642\u0648\u0644 \u0648\u062D\u0627\u0648\u0644 \u0645\u062C\u062F\u062F\u0627\u064B.",
       optional: "\u0627\u062E\u062A\u064A\u0627\u0631\u064A"
     },
@@ -3202,6 +3268,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
     <nav class="hidden items-center gap-6 text-sm font-semibold lg:flex">
       <a class="hover:text-watcher-blue" href="/${lang}#services">${esc(dict.nav.services)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#sovereign">${esc(dict.nav.sovereign)}</a>
+      <a class="hover:text-watcher-blue" href="/${lang}#claw">${esc(dict.nav.claw)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#research">${esc(dict.nav.research)}</a>
       <a class="hover:text-watcher-blue" href="/${lang}#contact">${esc(dict.nav.contact)}</a>
     </nav>
@@ -3216,6 +3283,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
     <div class="flex flex-col gap-3 text-sm font-semibold">
       <a href="/${lang}#services">${esc(dict.nav.services)}</a>
       <a href="/${lang}#sovereign">${esc(dict.nav.sovereign)}</a>
+      <a href="/${lang}#claw">${esc(dict.nav.claw)}</a>
       <a href="/${lang}#research">${esc(dict.nav.research)}</a>
       <a href="/${lang}#contact">${esc(dict.nav.contact)}</a>
       <a href="/${lang}#register" class="rounded-full bg-watcher-red px-4 py-2 text-center font-bold text-white">${esc(dict.nav.register)}</a>
@@ -3275,6 +3343,18 @@ function homePage(lang, dict, posts) {
       <a href="/${lang}#register" data-service="${s.key}" class="svc-cta mt-4 inline-flex items-center gap-2 text-sm font-bold text-watcher-red">\u2192 ${esc(dict.nav.register)} <span class="font-mono text-xs opacity-60">0${i + 1}</span></a>
     </article>`
   ).join("");
+  const clawStats = dict.claw.stats.map(
+    (st) => `<div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur">
+      <p class="text-3xl font-black text-watcher-cyan">${esc(st.value)}</p>
+      <p class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-300">${esc(st.label)}</p>
+    </div>`
+  ).join("");
+  const governanceItems = dict.governance.items.map(
+    (g) => `<div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+      <h3 class="text-lg font-extrabold text-watcher-cyan">${esc(g.title)}</h3>
+      <p class="mt-2 text-sm text-slate-300">${esc(g.desc)}</p>
+    </div>`
+  ).join("");
   const postCards = posts.length === 0 ? `<p class="text-sm opacity-70">\u2014</p>` : posts.map(
     (p) => `<article class="rounded-2xl border border-slate-200 bg-white p-6 dark:border-white/10 dark:bg-white/5">
         <p class="text-xs font-semibold text-slate-500">${esc((p.published_at || "").slice(0, 10))} \xB7 ${esc(p.slug)}</p>
@@ -3285,10 +3365,10 @@ function homePage(lang, dict, posts) {
   ).join("");
   const serviceOptions = dict.register.services.map((o) => `<option value="${o.value}">${esc(o.label)}</option>`).join("");
   return `
-<!-- HERO (dark) -->
+<!-- HERO (dark with executive visual aesthetic) -->
 <section class="relative overflow-hidden bg-watcher-deep text-white">
   <div class="hero-grid absolute inset-0"></div>
-  <div class="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-2 lg:pt-24">
+  <div class="relative mx-auto grid max-w-7xl gap-10 px-4 pb-16 pt-16 sm:px-6 lg:grid-cols-2 lg:pt-24 items-center">
     <div>
       <p class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-watcher-cyan">${esc(dict.hero.eyebrow)}</p>
       <h1 class="mt-5 text-5xl font-black leading-[0.95] sm:text-6xl">${esc(dict.hero.titleA)}<br/><span class="text-watcher-red">${esc(dict.hero.titleB)}</span></h1>
@@ -3301,82 +3381,117 @@ function homePage(lang, dict, posts) {
         ${dict.strip.map((s) => `<span><span class="text-watcher-red">\u25CF</span> ${esc(s)}</span>`).join("")}
       </div>
     </div>
-    <div>
+    <div class="relative">
       <div class="grid grid-cols-2 gap-3 sm:grid-cols-2">${heroBadges}</div>
-      <div class="mt-6 flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-        ${logoSVG(52)}
-        <div><p class="text-2xl font-black">Watcher <span class="text-watcher-blue">IA</span></p>
-        <p class="text-sm text-watcher-cyan">${esc(CONTACT.domain)}</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WATCHER CLAW PLATFORM SHOWCASE -->
+<section id="claw" class="relative overflow-hidden bg-watcher-navy py-20 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="grid gap-12 lg:grid-cols-2 items-center">
+      <div>
+        <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-cyan">${esc(dict.claw.eyebrow)}</p>
+        <h2 class="mt-2 font-serif text-4xl font-black leading-tight sm:text-5xl">${esc(dict.claw.title)}</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">${esc(dict.claw.subtitle)}</p>
+        <div class="mt-8 grid grid-cols-3 gap-4">${clawStats}</div>
+        <div class="mt-8">
+          <a href="/${lang}#register" class="rounded-full bg-watcher-cyan px-7 py-3.5 font-bold text-watcher-deep hover:bg-white">${esc(dict.claw.cta)} \u2192</a>
+        </div>
+      </div>
+      <div class="relative rounded-3xl border border-white/15 bg-white/5 p-4 shadow-2xl backdrop-blur">
+        <div class="absolute inset-0 bg-gradient-to-tr from-watcher-blue/20 to-transparent rounded-3xl pointer-events-none"></div>
+        <div class="rounded-2xl bg-watcher-deep/90 p-6 font-mono text-xs text-watcher-cyan border border-white/10">
+          <p class="text-slate-400">// WATCHER CLAW KERNEL V4.2</p>
+          <p class="mt-2 text-white font-bold">&gt; Initializing multi-agent supervisor...</p>
+          <p class="mt-1 text-emerald-400">&gt; SOP loaded: Accounting &amp; Admin Workforces [OK]</p>
+          <p class="mt-1 text-watcher-cyan">&gt; RAG pipeline connected to private vector DB [SECURE]</p>
+          <p class="mt-1 text-watcher-blue">&gt; n8n webhook listener active on port 5678 [LISTENING]</p>
+          <div class="mt-4 rounded-xl bg-black/40 p-4 border border-white/10 text-slate-300">
+            <p class="text-xs uppercase tracking-widest text-watcher-red font-bold">Autonomous Loop</p>
+            <p class="mt-1">\u201CWatcher Claw transitions manual execution into autonomous mastery for operational ROI.\u201D</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- SERVICES (light / dark hybrid) -->
-<section id="services" class="bg-slate-50 dark:bg-watcher-navy/40">
-  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+<section id="services" class="bg-slate-50 dark:bg-watcher-navy/40 py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-blue">${esc(dict.services.eyebrow)}</p>
     <h2 class="mt-2 max-w-2xl text-3xl font-black sm:text-4xl">${esc(dict.services.title)}</h2>
     <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.services.subtitle)}</p>
-    <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">${serviceCards}</div>
+    <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">${serviceCards}</div>
   </div>
 </section>
 
-<!-- SOVEREIGN (dark) -->
-<section id="sovereign" class="relative overflow-hidden bg-watcher-navy text-white">
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-2">
-    <div>
-      <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-cyan">${esc(dict.sovereign.eyebrow)}</p>
-      <h2 class="mt-2 font-serif text-4xl font-black leading-tight sm:text-5xl">${esc(dict.sovereign.title)}</h2>
-      <p class="mt-4 text-slate-300">${esc(dict.sovereign.desc)}</p>
-      <a href="/${lang}#register" class="mt-6 inline-block rounded-full bg-white px-6 py-3 font-bold text-watcher-navy hover:bg-watcher-cyan">${esc(dict.sovereign.cta)}</a>
+<!-- SOVEREIGN AI & GOVERNANCE -->
+<section id="sovereign" class="relative overflow-hidden bg-watcher-deep text-white py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="grid gap-12 lg:grid-cols-2 items-center">
+      <div>
+        <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-cyan">${esc(dict.governance.eyebrow)}</p>
+        <h2 class="mt-2 font-serif text-4xl font-black leading-tight sm:text-5xl">${esc(dict.governance.title)}</h2>
+        <p class="mt-4 text-slate-300 leading-relaxed">${esc(dict.governance.subtitle)}</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">${governanceItems}</div>
+      </div>
+      <div class="rounded-3xl border border-white/15 bg-white/5 p-8 backdrop-blur">
+        <h3 class="text-xl font-extrabold text-white">${esc(dict.sovereign.title)}</h3>
+        <p class="mt-3 text-slate-300 text-sm leading-relaxed">${esc(dict.sovereign.desc)}</p>
+        <ul class="mt-6 space-y-3">
+          ${dict.sovereign.bullets.map((b) => `<li class="flex items-start gap-3"><span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-watcher-cyan"></span><span class="font-semibold text-sm">${esc(b)}</span></li>`).join("")}
+        </ul>
+        <div class="mt-8">
+          <a href="/${lang}#register" class="inline-block rounded-full bg-watcher-red px-6 py-3 font-bold text-white shadow-lg hover:opacity-90">${esc(dict.sovereign.cta)}</a>
+        </div>
+      </div>
     </div>
-    <ul class="space-y-3">
-      ${dict.sovereign.bullets.map((b) => `<li class="flex items-start gap-3 rounded-2xl border border-white/10 bg-white/5 p-4"><span class="mt-1 inline-block h-2.5 w-2.5 rounded-full bg-watcher-cyan"></span><span class="font-semibold">${esc(b)}</span></li>`).join("")}
-    </ul>
   </div>
 </section>
 
 <!-- RESEARCH (hybrid light) -->
-<section id="research" class="bg-white dark:bg-watcher-deep">
-  <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+<section id="research" class="bg-white dark:bg-watcher-deep py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <p class="text-xs font-extrabold uppercase tracking-[0.22em] text-watcher-blue">${esc(dict.research.eyebrow)}</p>
     <div class="flex flex-wrap items-end justify-between gap-3">
       <h2 class="text-3xl font-black sm:text-4xl">${esc(dict.research.title)}</h2>
       <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue">/ ${esc(dict.nav.research)} \u2192</a>
     </div>
     <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.research.subtitle)}</p>
-    <div class="mt-8 grid gap-5 md:grid-cols-3">${postCards}</div>
+    <div class="mt-10 grid gap-6 md:grid-cols-3">${postCards}</div>
   </div>
 </section>
 
 <!-- REGISTER (light card on slate) -->
-<section id="register" class="bg-slate-50 dark:bg-black/40">
-  <div class="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 lg:grid-cols-2">
+<section id="register" class="bg-slate-50 dark:bg-black/40 py-20">
+  <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 items-center">
     <div>
       <h2 class="text-3xl font-black sm:text-4xl">${esc(dict.register.title)}</h2>
       <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.register.subtitle)}</p>
-      <ul class="mt-6 space-y-2 text-sm">
-        <li>\u2709\uFE0F <a class="font-bold text-watcher-blue" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
-        <li>\u{1F4DE} <a class="font-bold" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></li>
-        <li>\u{1F4CD} ${esc(CONTACT.address)}</li>
+      <ul class="mt-8 space-y-3 text-sm">
+        <li class="flex items-center gap-3">\u2709\uFE0F <a class="font-bold text-watcher-blue" href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
+        <li class="flex items-center gap-3">\u{1F4DE} <a class="font-bold" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></li>
+        <li class="flex items-center gap-3">\u{1F4CD} ${esc(CONTACT.address)}</li>
       </ul>
     </div>
-    <form id="regForm" data-lang="${lang}" class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xl dark:border-white/10 dark:bg-white/5">
+    <form id="regForm" data-lang="${lang}" class="rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl dark:border-white/10 dark:bg-white/5">
       <div class="grid gap-4 sm:grid-cols-2">
         <label class="block"><span class="text-sm font-bold">${esc(dict.register.name)} *</span>
-          <input name="name" required minlength="2" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-2.5 dark:border-white/15" placeholder="John Doe"/></label>
+          <input name="name" required minlength="2" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 dark:border-white/15" placeholder="John Doe"/></label>
         <label class="block"><span class="text-sm font-bold">${esc(dict.register.company)} <span class="font-normal opacity-60">(${esc(dict.register.optional)})</span></span>
-          <input name="company" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-2.5 dark:border-white/15" placeholder="Acme SARL"/></label>
+          <input name="company" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 dark:border-white/15" placeholder="Acme SARL"/></label>
       </div>
       <label class="mt-4 block"><span class="text-sm font-bold">${esc(dict.register.email)} *</span>
-        <input name="email" type="email" required class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-2.5 dark:border-white/15" placeholder="you@company.com"/></label>
+        <input name="email" type="email" required class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 dark:border-white/15" placeholder="you@company.com"/></label>
       <label class="mt-4 block"><span class="text-sm font-bold">${esc(dict.register.service)} *</span>
-        <select name="service_request" required class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-900 dark:border-white/15 dark:bg-watcher-deep dark:text-white">${serviceOptions}</select></label>
+        <select name="service_request" required class="mt-1 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-slate-900 dark:border-white/15 dark:bg-watcher-deep dark:text-white">${serviceOptions}</select></label>
       <label class="mt-4 block"><span class="text-sm font-bold">${esc(dict.register.message)}</span>
-        <textarea name="message" rows="4" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-2.5 dark:border-white/15"></textarea></label>
-      <button class="mt-5 w-full rounded-full bg-watcher-navy px-6 py-3.5 font-bold text-white hover:opacity-90 dark:bg-watcher-blue">${esc(dict.register.submit)}</button>
-      <p id="regMsg" role="status" class="mt-3 hidden rounded-xl p-3 text-sm font-semibold"></p>
+        <textarea name="message" rows="4" class="mt-1 w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 dark:border-white/15"></textarea></label>
+      <button class="mt-6 w-full rounded-full bg-watcher-navy px-6 py-4 font-bold text-white hover:opacity-90 dark:bg-watcher-blue">${esc(dict.register.submit)}</button>
+      <p id="regMsg" role="status" class="mt-4 hidden rounded-xl p-3 text-sm font-semibold"></p>
     </form>
   </div>
 </section>`;
@@ -3390,21 +3505,21 @@ function blogIndexPage(lang, dict, posts) {
       <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
       <span class="mt-3 inline-block text-sm font-bold text-watcher-blue">${esc(dict.research.readMore)} \u2192</span></a>`
   ).join("");
-  return `<section class="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+  return `<section class="mx-auto max-w-7xl px-4 py-16 sm:px-6">
     <h1 class="text-4xl font-black">${esc(dict.research.title)}</h1>
     <p class="mt-2 text-slate-600 dark:text-slate-300">${esc(dict.research.subtitle)}</p>
-    <div class="mt-8 grid gap-5 md:grid-cols-3">${cards || "<p>\u2014</p>"}</div>
+    <div class="mt-10 grid gap-6 md:grid-cols-3">${cards || "<p>\u2014</p>"}</div>
   </section>`;
 }
 __name(blogIndexPage, "blogIndexPage");
 function blogPostPage(lang, dict, post) {
-  return `<article class="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+  return `<article class="mx-auto max-w-3xl px-4 py-16 sm:px-6">
     <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue">\u2190 /${lang}/blog</a>
     <p class="mt-4 text-xs font-bold uppercase tracking-widest text-slate-500">${esc((post.published_at || "").slice(0, 10))}</p>
     <h1 class="mt-2 text-4xl font-black leading-tight">${esc(post.title)}</h1>
     <p class="mt-3 text-lg text-slate-600 dark:text-slate-300">${esc(post.excerpt)}</p>
-    <div class="prose mt-6 dark:prose-invert"><p>${esc(post.body)}</p></div>
-    <a href="/${lang}#register" class="mt-8 inline-block rounded-full bg-watcher-red px-6 py-3 font-bold text-white">${esc(dict.nav.register)}</a>
+    <div class="prose mt-8 dark:prose-invert"><p>${esc(post.body)}</p></div>
+    <a href="/${lang}#register" class="mt-10 inline-block rounded-full bg-watcher-red px-7 py-3.5 font-bold text-white">${esc(dict.nav.register)}</a>
   </article>`;
 }
 __name(blogPostPage, "blogPostPage");
@@ -3563,7 +3678,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env2, _ctx, middlewareCtx
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-ajLl0B/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-BrEF72/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -3595,7 +3710,7 @@ function __facade_invoke__(request, env2, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// .wrangler/tmp/bundle-ajLl0B/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-BrEF72/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

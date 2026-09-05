@@ -70,7 +70,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
 <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md transition-colors duration-500 dark:border-white/10 dark:bg-watcher-deep/80">
   <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
     <a href="/${lang}" class="flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02]">
-      <img src="/static/logo.png" alt="Watcher IA Logo" class="h-10 sm:h-12 w-auto object-contain rounded-xl"/>
+      <img src="/static/logo.png" alt="Watcher IA Logo" loading="lazy" class="h-10 sm:h-12 w-auto object-contain rounded-xl"/>
       <span class="leading-tight"><span class="block text-lg font-extrabold tracking-tight">Watcher <span class="text-watcher-blue">IA</span></span>
       <span class="block text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">AI agents that work</span></span>
     </a>
@@ -108,7 +108,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
   <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
     <div class="md:col-span-2">
       <div class="flex items-center gap-3">
-        <img src="/static/logo.png" alt="Watcher IA Logo" class="h-11 w-auto object-contain rounded-xl"/>
+        <img src="/static/logo.png" alt="Watcher IA Logo" loading="lazy" class="h-11 w-auto object-contain rounded-xl"/>
         <div><p class="text-xl font-extrabold text-white">Watcher <span class="text-watcher-cyan">IA</span></p>
         <p class="text-xs uppercase tracking-[0.2em] text-slate-400">${esc(CONTACT.domain)}</p></div>
       </div>
@@ -145,7 +145,7 @@ tailwind.config = { darkMode: 'class', theme: { extend: {
 export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
   const heroBadges = dict.hero.badges
     .map(
-      (b, idx) => `<div class="glass-panel rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] border-white/10">
+      (b, idx) => `<div class="glass-panel rounded-2xl p-4 transition-all duration-300 hover:scale-[1.02] border-white/10 backdrop-blur-md">
         <div class="flex items-center gap-3">
           <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-watcher-blue/10 font-mono text-xs font-black text-watcher-cyan">0${idx + 1}</span>
           <span class="text-xs font-extrabold uppercase tracking-wide text-slate-200">${esc(b)}</span>
@@ -154,15 +154,15 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
     )
     .join('');
 
-  const serviceImages = ['/static/service-1.jpg', '/static/service-2.jpg', '/static/service-3.jpg', '/static/service-4.jpg'];
+  const serviceImages = ['/static/service-1.webp', '/static/service-2.webp', '/static/service-3.webp', '/static/service-4.webp'];
   const serviceCards = dict.services.items
     .map(
-      (s, i) => `<article class="glass-panel group rounded-3xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl border-white/10 flex flex-col justify-between">
+      (s, i) => `<article class="glass-panel group rounded-3xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl border-white/10 flex flex-col justify-between backdrop-blur-md">
       <div>
-        <div class="h-36 w-full mb-4 overflow-hidden rounded-2xl border border-white/10 bg-watcher-navy/50 relative">
-          <img src="${serviceImages[i % serviceImages.length]}" alt="${esc(s.title)}" class="h-full w-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"/>
-          <div class="absolute inset-0 bg-gradient-to-t from-watcher-deep/80 to-transparent"></div>
-          <span class="absolute bottom-2 left-3 font-mono text-[10px] font-black uppercase text-watcher-cyan tracking-wider">MODULE 0${i + 1}</span>
+        <div class="h-40 w-full mb-4 overflow-hidden rounded-2xl border border-white/10 bg-watcher-navy/50 relative">
+          <img src="${serviceImages[i % serviceImages.length]}" alt="${esc(s.title)}" loading="lazy" class="h-full w-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-watcher-deep/80 via-watcher-deep/30 to-transparent"></div>
+          <span class="absolute bottom-3 left-3 font-mono text-[10px] font-black uppercase text-watcher-cyan tracking-wider bg-black/50 px-2.5 py-1 rounded-lg backdrop-blur-sm">MODULE 0${i + 1}</span>
         </div>
         <div class="flex items-center justify-between">
           <span class="rounded-full bg-watcher-cyan/10 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.18em] text-watcher-cyan">${esc(s.tag)}</span>
@@ -180,7 +180,7 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
 
   const clawStats = dict.claw.stats
     .map(
-      (st) => `<div class="glass-panel rounded-2xl p-4 text-center transition-all duration-300 hover:scale-[1.02] border-white/10">
+      (st) => `<div class="glass-panel rounded-2xl p-4 text-center transition-all duration-300 hover:scale-[1.02] border-white/10 backdrop-blur-md">
       <p class="text-3xl font-black text-watcher-cyan">${esc(st.value)}</p>
       <p class="mt-1 text-xs font-bold uppercase tracking-widest text-slate-300">${esc(st.label)}</p>
     </div>`
@@ -189,7 +189,7 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
 
   const governanceItems = dict.governance.items
     .map(
-      (g, idx) => `<div class="glass-panel rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] border-white/10">
+      (g, idx) => `<div class="glass-panel rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] border-white/10 backdrop-blur-md">
       <span class="font-mono text-xs font-black text-watcher-cyan">PRINCIPLE 0${idx + 1}</span>
       <h3 class="mt-2 text-lg font-extrabold text-white">${esc(g.title)}</h3>
       <p class="mt-2 text-sm text-slate-300 leading-relaxed">${esc(g.desc)}</p>
@@ -202,8 +202,11 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
       ? `<p class="text-sm opacity-70">—</p>`
       : posts
           .map(
-            (p) => `<article class="glass-panel rounded-3xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl border-white/10">
-        ${p.cover ? `<div class="h-40 w-full mb-4 overflow-hidden rounded-2xl border border-white/10"><img src="${esc(p.cover)}" alt="${esc(p.title)}" class="h-full w-full object-cover opacity-90"/></div>` : ''}
+            (p) => `<article class="glass-panel rounded-3xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl border-white/10 backdrop-blur-md">
+        <div class="h-44 w-full mb-4 overflow-hidden rounded-2xl border border-white/10 relative bg-watcher-navy/40">
+          <img src="${esc(p.cover || '/static/blog-1.webp')}" alt="${esc(p.title)}" loading="lazy" class="h-full w-full object-cover opacity-90"/>
+          <div class="absolute inset-0 bg-gradient-to-t from-watcher-deep/70 to-transparent"></div>
+        </div>
         <div class="flex items-center justify-between text-xs font-semibold text-slate-500">
           <span>${esc((p.published_at || '').slice(0, 10))}</span>
           <span class="font-mono text-watcher-blue">${esc(p.slug)}</span>
@@ -222,13 +225,14 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
     .join('');
 
   return `
-<!-- HERO SECTION (Atmospheric full-width background image + breathing blobs + glassmorphism) -->
+<!-- HERO SECTION (Atmospheric background image + dark overlay for absolute readability + glassmorphism) -->
 <section class="relative overflow-hidden bg-watcher-deep text-white py-28 lg:py-36">
   <div class="absolute inset-0 z-0">
-    <img src="/static/hero-bg.jpg" alt="Agentic Data Flows" class="h-full w-full object-cover opacity-30"/>
+    <img src="/static/hero-bg.webp" alt="Agentic Data Flows" loading="lazy" class="h-full w-full object-cover opacity-35"/>
     <div class="absolute inset-0 bg-gradient-to-r from-watcher-deep via-watcher-deep/90 to-watcher-deep/70"></div>
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
   </div>
-  <div class="hero-grid absolute inset-0 pointer-events-none opacity-45 z-10"></div>
+  <div class="hero-grid absolute inset-0 pointer-events-none opacity-40 z-10"></div>
   <div class="absolute -top-32 -left-32 h-96 w-96 rounded-full bg-watcher-blue/20 blur-3xl animate-breathe pointer-events-none z-10"></div>
   <div class="absolute top-1/2 -right-32 h-96 w-96 rounded-full bg-watcher-red/15 blur-3xl animate-breathe-delayed pointer-events-none z-10"></div>
 
@@ -245,7 +249,7 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
       <p class="mt-6 max-w-xl text-lg leading-relaxed text-slate-300">${esc(dict.hero.subtitle)}</p>
       <div class="mt-8 flex flex-wrap gap-4">
         <a href="/${lang}#register" class="rounded-full bg-watcher-red px-8 py-4 font-bold text-white shadow-xl shadow-red-900/50 transition-all duration-300 hover:scale-105 hover:bg-red-600">${esc(dict.hero.ctaPrimary)}</a>
-        <a href="/${lang}#services" class="glass-panel rounded-full px-8 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white/10 border-white/10">${esc(dict.hero.ctaSecondary)}</a>
+        <a href="/${lang}#services" class="glass-panel rounded-full px-8 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-white/10 border-white/10 backdrop-blur-md">${esc(dict.hero.ctaSecondary)}</a>
       </div>
       <div class="mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
         ${dict.strip.map((s) => `<div class="font-mono text-xs font-bold uppercase tracking-wider text-watcher-cyan"><span class="text-watcher-red mr-1.5">/</span>${esc(s)}</div>`).join('')}
@@ -288,7 +292,7 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
   </div>
 </section>
 
-<!-- SERVICES GRID (Refactored with Glassmorphism & Unique Abstract Images) -->
+<!-- SERVICES GRID -->
 <section id="services" class="bg-slate-50 dark:bg-watcher-navy/40 py-24 transition-colors duration-500">
   <div class="mx-auto max-w-7xl px-4 sm:px-6">
     <div class="max-w-3xl">
@@ -366,13 +370,13 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
     <div>
       <h2 class="text-3xl font-black tracking-tight sm:text-5xl">${esc(dict.register.title)}</h2>
       <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">${esc(dict.register.subtitle)}</p>
-      <div class="glass-panel mt-8 rounded-3xl p-8 space-y-4 text-sm border-white/10">
+      <div class="glass-panel mt-8 rounded-3xl p-8 space-y-4 text-sm border-white/10 backdrop-blur-md">
         <div><span class="text-xs font-black uppercase tracking-widest text-watcher-blue block">${esc(dict.footer.emailLabel)}</span><a class="font-bold text-slate-900 dark:text-white" href="mailto:${CONTACT.email}">${CONTACT.email}</a></div>
         <div class="pt-3 border-t border-slate-200/60 dark:border-white/15"><span class="text-xs font-black uppercase tracking-widest text-watcher-blue block">${esc(dict.footer.phoneLabel)}</span><a class="font-bold text-slate-900 dark:text-white" href="tel:${CONTACT.phone}">${CONTACT.phone}</a></div>
         <div class="pt-3 border-t border-slate-200/60 dark:border-white/15"><span class="text-xs font-black uppercase tracking-widest text-watcher-blue block">${esc(dict.footer.addressLabel)}</span><span class="font-bold text-slate-900 dark:text-white">${esc(CONTACT.address)}</span></div>
       </div>
     </div>
-    <form id="regForm" data-lang="${lang}" class="glass-panel rounded-3xl p-8 shadow-2xl border-white/10">
+    <form id="regForm" data-lang="${lang}" class="glass-panel rounded-3xl p-8 shadow-2xl border-white/10 backdrop-blur-md">
       <div class="grid gap-4 sm:grid-cols-2">
         <label class="block"><span class="text-sm font-bold">${esc(dict.register.name)} *</span>
           <input name="name" required minlength="2" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white/50 px-4 py-3.5 text-slate-900 focus:outline-none focus:ring-2 focus:ring-watcher-cyan dark:border-white/15 dark:bg-watcher-deep dark:text-white" placeholder="John Doe"/></label>
@@ -395,8 +399,11 @@ export function homePage(lang: Lang, dict: Dict, posts: PostRow[]): string {
 export function blogIndexPage(lang: Lang, dict: Dict, posts: PostRow[]): string {
   const cards = posts
     .map(
-      (p) => `<a href="/${lang}/blog/${esc(p.slug)}" class="glass-panel block rounded-3xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl border-white/10">
-      ${p.cover ? `<div class="h-40 w-full mb-4 overflow-hidden rounded-2xl border border-white/10"><img src="${esc(p.cover)}" alt="${esc(p.title)}" class="h-full w-full object-cover"/></div>` : ''}
+      (p) => `<a href="/${lang}/blog/${esc(p.slug)}" class="glass-panel block rounded-3xl overflow-hidden p-6 transition-all duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-2xl border-white/10 backdrop-blur-md">
+      <div class="h-44 w-full mb-4 overflow-hidden rounded-2xl border border-white/10 relative bg-watcher-navy/40">
+        <img src="${esc(p.cover || '/static/blog-1.webp')}" alt="${esc(p.title)}" loading="lazy" class="h-full w-full object-cover opacity-90"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-watcher-deep/70 to-transparent"></div>
+      </div>
       <p class="text-xs font-mono text-watcher-blue">${esc((p.published_at || '').slice(0, 10))}</p>
       <h3 class="mt-3 text-xl font-black tracking-tight">${esc(p.title)}</h3>
       <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">${esc(p.excerpt)}</p>
@@ -413,11 +420,11 @@ export function blogIndexPage(lang: Lang, dict: Dict, posts: PostRow[]): string 
 export function blogPostPage(lang: Lang, dict: Dict, post: PostRow & { body: string }): string {
   return `<article class="mx-auto max-w-3xl px-4 py-24 sm:px-6">
     <a href="/${lang}/blog" class="text-sm font-bold text-watcher-blue transition-colors hover:text-watcher-cyan">← /${lang}/blog</a>
-    ${post.cover ? `<div class="h-64 w-full my-6 overflow-hidden rounded-3xl border border-white/10 shadow-2xl"><img src="${esc(post.cover)}" alt="${esc(post.title)}" class="h-full w-full object-cover"/></div>` : ''}
+    ${post.cover ? `<div class="h-64 w-full my-6 overflow-hidden rounded-3xl border border-white/10 shadow-2xl relative bg-watcher-navy/40"><img src="${esc(post.cover)}" alt="${esc(post.title)}" loading="lazy" class="h-full w-full object-cover"/><div class="absolute inset-0 bg-gradient-to-t from-watcher-deep/60 to-transparent"></div></div>` : ''}
     <p class="mt-6 text-xs font-mono font-bold text-watcher-blue uppercase tracking-widest">${esc((post.published_at || '').slice(0, 10))}</p>
     <h1 class="mt-3 text-4xl font-black tracking-tight leading-tight sm:text-5xl">${esc(post.title)}</h1>
     <p class="mt-4 text-xl leading-relaxed text-slate-600 dark:text-slate-300 font-semibold">${esc(post.excerpt)}</p>
-    <div class="glass-panel mt-10 rounded-3xl p-8 leading-relaxed text-slate-700 dark:text-slate-200 border-white/10">${esc(post.body)}</div>
+    <div class="glass-panel mt-10 rounded-3xl p-8 leading-relaxed text-slate-700 dark:text-slate-200 border-white/10 backdrop-blur-md">${esc(post.body)}</div>
     <div class="mt-12">
       <a href="/${lang}#register" class="inline-block rounded-full bg-watcher-red px-8 py-4 font-bold text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-red-600">${esc(dict.nav.register)}</a>
     </div>

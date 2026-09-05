@@ -12,7 +12,7 @@ binding = "ASSETS"
 binding = "DB"
 database_name = "watcher_ia_db"
 # TODO: replace after `wrangler d1 create watcher_ia_db`
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+database_id = "0aa2867a-1377-4f03-89c9-fd77d97c9963"
 migrations_dir = "migrations"
 
 [vars]
